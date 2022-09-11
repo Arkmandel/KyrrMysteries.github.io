@@ -53,9 +53,9 @@ html {
 }
 
 #symbol {
-  border: 3px solid #FF4040;
+  border: 3px solid #0E2F44;
   border-radius: 12px;
-  background-color: #0E2F44;
+  background-color: #FF4040;
   margin-right: 35px;
   float: right;
 }
