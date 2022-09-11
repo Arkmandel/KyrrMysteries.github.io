@@ -1,0 +1,93 @@
+.topInfo {
+  display: flex;
+  width: 100%;
+  text-align: center;
+}
+
+.Info {
+  float: left;
+  width: 32%;
+  align-items: center;
+}
+
+.characterInfo {
+  margin: 10px 5px 0px 0px;
+  padding: 7px;
+}
+
+.classInfo {
+  margin: 10px 5px 0px 5px;
+}
+
+.multiClass {
+  margin: 10px 0px 0px 5px;
+}
+
+.scoresSaves {
+  float: left;
+  position: absolute;
+  margin-top: 50px;
+}
+
+.skills {
+  float: right;
+  margin-top: 50px;
+}
+
+* {
+  font-family: "Almendra SC";
+}
+
+body {
+  background-image: url("https://i.pinimg.com/originals/af/0b/c9/af0bc9e49387570a8e91699c45684db4.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.hidden {
+  display: none;
+}
+
+html {
+  color: #FFFF66;
+}
+
+#symbol {
+  border: 3px solid #FF4040;
+  border-radius: 12px;
+  background-color: #0E2F44;
+  margin-right: 35px;
+  float: right;
+}
+
+.title {
+  margin: 0 auto 0 auto;
+  width: 75%;
+  text-align: center;
+}
+
+.dark-mode {
+  background-image: url("https://preview.redd.it/fhw62fs8e0b61.jpg?width=1920&format=pjpg&auto=webp&s=7122c1eabc5d9541541505619fc9095b3fd13ef8");
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: #0AD13F;
+}
+.dark-mode #symbol {
+  border: 3px solid #3A2F37;
+  border-radius: 12px;
+  background-color: #0AD13F;
+  margin-right: 35px;
+  float: right;
+}
+.dark-mode .hidden {
+  display: block;
+}
+.dark-mode .show {
+  display: none;
+}
+.dark-mode .title {
+  align-items: center;
+  margin: 0 auto 0 auto;
+  width: 75%;
+  text-align: center;
+}
