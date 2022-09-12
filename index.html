@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="pt-BR" >
+<html lang="en" >
 <head>
   <meta charset="UTF-8">
-  <title>Kyrr Character Sheet v0.4</title>
+  <title>CodePen - Kyrr Character Sheet v0.4</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 <link href='https://fonts.googleapis.com/css?family=Almendra SC' rel='stylesheet'>
 <meta charset="UTF-8"><link rel="stylesheet" href="./style.css">
@@ -11,10 +11,10 @@
 <body>
 <!-- partial:index.partial.html -->
 <header>
-  <button id="symbol" style="font-size: 35px; cursor: pointer" onclick="DarkMode()"><span class="show" id="icon">&#9763;</span><span class="hidden" id="dk-icon">&#9771;</span></button>
+  <button id="symbol" style="font-size: 2.1em; cursor: pointer" onclick="DarkMode()"><span class="show" id="icon">&#9763;</span><span class="hidden" id="dk-icon">&#9771;</span></button>
   <h1 class="title">Ficha de Personagem</h1>
 </header>
-<div class="topInfo">
+<div class="topInfo tI-light tI-dark">
   <Section class="characterInfo Info"> 
     <label for="nameC">Nome do Personagem:
       <input id="nameC" type="text" placeholder="Aron Callins VI"/>
@@ -125,7 +125,7 @@
     <label for="profValue">Bônus de Proficiência:
       <input id="profValue" type="text" size="2" readonly="readonly"/>
     </label>
-    <label for="class">Classe:
+    <label for="class"><br/>Classe:
       <select id="class" onchange="ChangeClass(this);">
         <option>Escolha uma Classe</option>
         <optgroup label="Conjurador">
@@ -159,8 +159,8 @@
       </label>
     </label>
   </Section>
-  <Section class="multiClass Info">
-    <label for="class">Classe:
+  <Section class="multiClass Info" style="display: none">
+    <label for="classII">Classe:
       <select id="classII" onchange="ChangeClassII(this);">
         <option>Escolha uma Classe</option>
         <optgroup label="Conjurador">
@@ -184,12 +184,12 @@
         </optgroup>
       </select>
     </label>
-    <label for="levelClass"><br/>Nível<span id="secondaryClass">Classe:</span>
-      <input id="levelClassII" type="number" min="1" max="20" onchange="UpdateTotal();"/>
+    <label for="levelClassII">Nível<span id="secondaryClass">Classe:</span>
+      <input id="levelClassII" type="number" min="0" max="20" onchange="UpdateTotal();" value="0"/>
     </label>
   </Section>
 </div>
-<Section class="scoresSaves">
+<Section class="scoresSaves sS-light sS-dark">
   <table>
     <caption>Valores de Habilidade
       <tr>
@@ -306,8 +306,52 @@
       </tr>
     </caption>
   </table>
+  <Section class="proficienciesFeats pF-light pF-dark">
+    <div class="Proficiencies">
+      <h2>Proficiencias e Talentos</h2>
+      <div class="armor">
+        <label for="#armorp">Armadura:
+          <select id="armorp">
+            <option>none</option>
+            <option>Armadura Leve</option>
+            <option>Armadura Média</option>
+            <option>Armadura Pesada</option>
+            <option>Todas</option>
+          </select>
+        </label>
+      </div>
+      <div class="weapons">
+        <label for="#weaponp">Arma:
+          <select id="weaponp" onchancge="otherWeapons()">
+            <option>none</option>
+            <option>Armas Simples</option>
+            <option>Armas Marciais</option>
+            <option>Todas</option>
+            <option>Outros</option>
+          </select>
+        </label>
+      </div>
+      <div class="languages">
+        <label for="#langp">Quais idiomas você conhece?
+          <button id="langp" onclick="Transpose()">&#9908</button>
+        </label>
+        <p id="langtext"></p>
+      </div>
+      <div class="tools">
+        <label for="#toolp">Quais Ferramentas você sabe usar?
+          <button id="toolp" onclick="Tools()">&#9874</button>
+          <p id="tooltext"> </p>
+        </label>
+      </div>
+    </div>
+  </Section>
 </Section>
-<Section class="skills">
+<Section class="middleSection">
+  <div class="speedInitiative"></div>
+  <div class="acLife"></div>
+  <div class="dsSpellDC"></div>
+</Section>
+<Section class="skills S-light S-dark">
   <table>
     <caption>Pericias
       <tr>
@@ -317,179 +361,179 @@
         <th>Valor</th>
       </tr>
       <tr>
-        <td>Acrobacia</td>
+        <td class="skname">Acrobacia</td>
         <td>Destreza</td>
         <td> 
-          <input type="radio"/>
+          <input type="checkbox"/>
         </td>
         <td> <span id="totAcro"></span></td>
       </tr>
       <tr>
-        <td>Adestrar Animais</td>
+        <td class="skname">Adestrar Animais</td>
         <td>Sabedoria</td>
         <td> 
-          <input type="radio"/>
+          <input type="checkbox"/>
         </td>
         <td> <span id="totAdes"></span></td>
       </tr>
       <tr>
-        <td>Arcanismo</td>
+        <td class="skname">Arcanismo</td>
         <td>Inteligência</td>
         <td> 
-          <input type="radio"/>
+          <input type="checkbox"/>
         </td>
         <td> <span id="totArcan"></span></td>
       </tr>
       <tr>
-        <td>Atletismo</td>
+        <td class="skname">Atletismo</td>
         <td>Força</td>
         <td> 
-          <input type="radio"/>
+          <input type="checkbox"/>
         </td>
         <td> <span id="totAthe"></span></td>
       </tr>
       <tr>
-        <td>Atuação</td>
+        <td class="skname">Atuação</td>
         <td>Carisma</td>
         <td> 
-          <input type="radio"/>
+          <input type="checkbox"/>
         </td>
         <td> <span id="totPerf"></span></td>
       </tr>
       <tr>
-        <td>Concentração</td>
+        <td class="skname">Concentração</td>
         <td>Sanidade</td>
         <td> 
-          <input type="radio"/>
+          <input type="checkbox"/>
         </td>
         <td> <span id="totConc"></span></td>
       </tr>
       <tr>
-        <td>Enganação</td>
+        <td class="skname">Enganação</td>
         <td>Carisma</td>
         <td> 
-          <input type="radio"/>
+          <input type="checkbox"/>
         </td>
         <td> <span id="totDec"></span></td>
       </tr>
       <tr>
-        <td>Fortitude Mental</td>
+        <td class="skname">Fortitude Mental</td>
         <td>Sanidade</td>
         <td> 
-          <input type="radio"/>
+          <input type="checkbox"/>
         </td>
         <td> <span id="totMF"></span></td>
       </tr>
       <tr>
-        <td>Furtividade</td>
+        <td class="skname">Furtividade</td>
         <td>Destreza</td>
         <td> 
-          <input type="radio"/>
+          <input type="checkbox"/>
         </td>
         <td> <span id="totSte"></span></td>
       </tr>
       <tr>
-        <td>História</td>
+        <td class="skname">História</td>
         <td>Inteligência</td>
         <td> 
-          <input type="radio"/>
+          <input type="checkbox"/>
         </td>
         <td> <span id="totHis"></span></td>
       </tr>
       <tr>
-        <td>Intimidação</td>
+        <td class="skname">Intimidação</td>
         <td>Carisma</td>
         <td> 
-          <input type="radio"/>
+          <input type="checkbox"/>
         </td>
         <td> <span id="totInt"></span></td>
       </tr>
       <tr>
-        <td>Intuição</td>
+        <td class="skname">Intuição</td>
         <td>Sabedoria</td>
         <td> 
-          <input type="radio"/>
+          <input type="checkbox"/>
         </td>
         <td> <span id="totIns"></span></td>
       </tr>
       <tr>
-        <td>Investigação</td>
+        <td class="skname">Investigação</td>
         <td>Inteligência</td>
         <td> 
-          <input type="radio"/>
+          <input type="checkbox"/>
         </td>
         <td> <span id="totInv"></span></td>
       </tr>
       <tr>
-        <td>Medicina</td>
+        <td class="skname">Medicina</td>
         <td>Sabedoria</td>
         <td> 
-          <input type="radio"/>
+          <input type="checkbox"/>
         </td>
         <td> <span id="totMed"></span></td>
       </tr>
       <tr>
-        <td>Natureza</td>
+        <td class="skname">Natureza</td>
         <td>Inteligência</td>
         <td> 
-          <input type="radio"/>
+          <input type="checkbox"/>
         </td>
         <td> <span id="totNat"></span></td>
       </tr>
       <tr>
-        <td>Percepção</td>
+        <td class="skname">Percepção</td>
         <td>Sabedoria</td>
         <td> 
-          <input type="radio"/>
+          <input type="checkbox"/>
         </td>
         <td> <span id="totPerc"></span></td>
       </tr>
       <tr>
-        <td>Persuasão</td>
+        <td class="skname">Persuasão</td>
         <td>Carisma</td>
         <td> 
-          <input type="radio"/>
+          <input type="checkbox"/>
         </td>
         <td> <span id="totPers"></span></td>
       </tr>
       <tr>
-        <td>Prestidigitação</td>
+        <td class="skname">Prestidigitação</td>
         <td>Destreza</td>
         <td> 
-          <input type="radio"/>
+          <input type="checkbox"/>
         </td>
         <td> <span id="totSlei"></span></td>
       </tr>
       <tr>
-        <td>Resistir Tortura e Drogas</td>
+        <td class="skname">Resistir Tortura e Drogas</td>
         <td>Sanidade</td>
         <td> 
-          <input type="radio"/>
+          <input type="checkbox"/>
         </td>
         <td> <span id="totRTD"></span></td>
       </tr>
       <tr>
-        <td>Resistir Controle Mental
+        <td class="skname">Resistir Controle Mental
           <td>Sanidade</td>
           <td> 
-            <input type="radio"/>
+            <input type="checkbox"/>
           </td>
           <td> <span id="totRCm"></span></td>
         </td>
       </tr>
       <tr>
-        <td>Religião</td>
+        <td class="skname">Religião</td>
         <td>Inteligência</td>
         <td> 
-          <input type="radio"/>
+          <input type="checkbox"/>
         </td>
         <td> <span id="totReli"></span></td>
       </tr>
       <tr>
-        <td>Sobrevivência</td>
+        <td class="skname">Sobrevivência</td>
         <td>Sabedoria</td>
         <td> 
-          <input type="radio"/>
+          <input type="checkbox"/>
         </td>
         <td> <span id="totSurv"></span></td>
       </tr>

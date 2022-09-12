@@ -1,37 +1,84 @@
+input, #classII {
+  margin-right: 5%;
+}
+
+caption {
+  font-size: 1.7em;
+}
+
+h2 {
+  text-align: center;
+}
+
 .topInfo {
   display: flex;
   width: 100%;
   text-align: center;
+  border: #FFFCFC;
 }
 
 .Info {
   float: left;
-  width: 32%;
+  width: 49%;
   align-items: center;
 }
 
 .characterInfo {
-  margin: 10px 5px 0px 0px;
-  padding: 7px;
+  margin: 2% 1% 0% 0%;
+  padding: 1.4%;
 }
 
 .classInfo {
-  margin: 10px 5px 0px 5px;
+  margin: 2% 1% 0% 1%;
 }
 
 .multiClass {
-  margin: 10px 0px 0px 5px;
+  margin: 2% 0% 0% 1%;
 }
 
 .scoresSaves {
   float: left;
   position: absolute;
-  margin-top: 50px;
+  margin-top: 10%;
+}
+
+.proficienciesFeats {
+  margin-top: 5%;
+  position: relative;
+  top: 55%;
+}
+
+.Proficiencies select, .Proficiencies button {
+  float: right;
+  border-radius: 2.4%;
+}
+.Proficiencies button {
+  padding: 1.4%;
+}
+
+.armor, .languages, .gaming, .instruments, .weapons {
+  margin-top: 5%;
+}
+
+.tools {
+  margin-top: 15%;
 }
 
 .skills {
   float: right;
-  margin-top: 50px;
+  margin-top: 10%;
+}
+.skills td {
+  text-align: center;
+}
+
+#toolp {
+  position: relative;
+}
+
+#toolabel {
+  position: relative;
+  bottom: 10%;
 }
 
 * {
@@ -39,9 +86,9 @@
 }
 
 body {
-  background-image: url("https://i.pinimg.com/originals/af/0b/c9/af0bc9e49387570a8e91699c45684db4.jpg");
+  background-image: url("https://i.pinimg.com/originals/39/ab/84/39ab8439bd5030b89b4ad1bb358d944e.jpg");
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: auto;
 }
 
 .hidden {
@@ -53,10 +100,10 @@ html {
 }
 
 #symbol {
-  border: 3px solid #0E2F44;
-  border-radius: 12px;
+  border: 0.6% solid #0E2F44;
+  border-radius: 2.4%;
   background-color: #FF4040;
-  margin-right: 35px;
+  margin-right: 7%;
   float: right;
 }
 
@@ -66,17 +113,42 @@ html {
   text-align: center;
 }
 
+.tI-light, .S-light, .pF-light, .sS-light {
+  border: 0.8% outset #0E2F44;
+  border-radius: 3%;
+  margin-top: 5%;
+  background-color: rgba(255, 64, 64, 0.45);
+}
+
+.sS-light {
+  width: 32%;
+  height: auto;
+  border-bottom: 0%;
+}
+
+.pF-light {
+  border-top: 0%;
+  border-left: 0%;
+  border-right: 0%;
+  background-color: rgba(255, 255, 255, 0);
+}
+
+.S-light {
+  width: 32%;
+  height: 100%;
+}
+
 .dark-mode {
   background-image: url("https://preview.redd.it/fhw62fs8e0b61.jpg?width=1920&format=pjpg&auto=webp&s=7122c1eabc5d9541541505619fc9095b3fd13ef8");
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: auto;
   color: #0AD13F;
 }
 .dark-mode #symbol {
-  border: 3px solid #3A2F37;
-  border-radius: 12px;
+  border: 0.6% solid #3A2F37;
+  border-radius: 2.4%;
   background-color: #0AD13F;
-  margin-right: 35px;
+  margin-right: 7%;
   float: right;
 }
 .dark-mode .hidden {
@@ -90,4 +162,25 @@ html {
   margin: 0 auto 0 auto;
   width: 75%;
   text-align: center;
+}
+.dark-mode .tI-dark, .dark-mode .S-dark, .dark-mode .pF-dark, .dark-mode .sS-dark {
+  border: 0.6% outset #8F8C04;
+  border-radius: 3%;
+  margin-top: 5%;
+  background-color: rgba(97, 97, 97, 0.45);
+}
+.dark-mode .sS-dark {
+  width: 32%;
+  height: auto;
+  border-bottom: 0%;
+}
+.dark-mode .pF-dark {
+  border-top: 0%;
+  border-left: 0%;
+  border-right: 0%;
+  background-color: rgba(255, 255, 255, 0);
+}
+.dark-mode .S-dark {
+  width: 32%;
+  height: 100%;
 }
