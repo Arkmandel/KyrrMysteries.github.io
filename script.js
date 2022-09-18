@@ -288,15 +288,12 @@ confirnm.onclick = function () {
 };
 
 function raceSelect(raceSelect) {
+	const btn = document.getElementById("myBtn");
+	const botao = btn.addEventListener("click", () => {
+		clearTimeout(Timer);
+	});
 	var race = raceSelect.value;
-	const cssObj = window.getComputedStyle(btn);
-	let aparencia = cssObj.getPropertyValue("display");
-	if (
-		(aparencia == "none" && conf.clicked == false) ||
-		confirnm.clicked == false
-	) {
-		setTimeout(applyRMod, 10000);
-	}
+	const Timer = setTimeout(applyRMod, 25000);
 	function applyRMod() {
 		if (race == "aarakocra") {
 			document.getElementById("dexScr").value =
