@@ -9,4 +9,6 @@ Parte também dos estudos de um mestre cansado e frustrado com a limitação das
 
 Aproveitem, e se acharem algum erro, ou tiverem sugestões. Por favor me comuniquem!
 
+**Gostaria de Agradeçer em especial ao Gabriel, obrigado por me ajudar a desenvolver a ficha e achar minhas cagadas no código**
+
 Bom jogo!
