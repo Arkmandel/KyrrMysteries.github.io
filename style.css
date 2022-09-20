@@ -11,9 +11,12 @@
 
 #myBtn {
   display: none;
+  border-radius: 12px;
+  width: 25%;
+  margin-left: 75px;
 }
 
-.modal {
+.modal, .modalSpeed {
   display: none;
   position: fixed;
   z-index: 1;
@@ -27,12 +30,14 @@
   background-color: rgba(0, 0, 0, 0.4);
 }
 
-.modal-content {
-  background-color: #fefefe;
-  margin: auto;
-  padding: 20px;
-  border: 1px solid #888;
-  width: 80%;
+.modalSpeed {
+  display: block;
+  visibility: hidden;
+  padding: 2%;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
 }
 
 .close {
@@ -69,10 +74,6 @@
   display: none;
 }
 
-input, #classII {
-  margin-right: 25px;
-}
-
 caption {
   font-size: 1.7em;
 }
@@ -95,7 +96,7 @@ h2 {
 
 .characterInfo {
   margin: 10px 5px 0px 0px;
-  padding: 7px;
+  padding: 0.71%;
 }
 
 .classInfo {
@@ -110,14 +111,85 @@ h2 {
   font-family: "Almendra SC";
 }
 
+.sidenav, .dark-mode .sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 6.1%;
+}
+.sidenav a, .dark-mode .sidenav a {
+  padding: 0.81% 0.81% 0.81% 3.79%;
+  text-decoration: none;
+  font-size: 25px;
+  display: block;
+  transition: 0.3s;
+}
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+#Manual, #lifeTotalMan {
+  display: none;
+}
+
 body {
-  background-image: url("https://i.pinimg.com/originals/39/ab/84/39ab8439bd5030b89b4ad1bb358d944e.jpg");
+  background-image: url("https://wallpapercrafter.com/desktop/11152-laboratory-sci-fi-art-man-monitors-light-4k.jpg");
   background-repeat: no-repeat;
-  background-size: auto;
+  background-size: cover;
+}
+
+select, .Proficiencies button {
+  border-radius: 12px;
+  border: 0px solid black;
+  background-color: rgba(255, 64, 64, 0);
+  color: #FFFF66;
+}
+
+input, #classII {
+  margin-right: 17.5px;
+  border: 0px solid black;
+  background-color: rgba(255, 64, 64, 0);
+  color: #FFFF66;
 }
 
 .hidden {
   display: none;
+}
+
+.modal-content, .modalSpeed-content {
+  margin: auto;
+  padding: 2.03334689%;
+  width: 80%;
+  border: 3px outset #0E2F44;
+  border-radius: 12px;
+  background-color: rgba(255, 64, 64, 0.45);
+}
+
+.modalSpeed-content {
+  text-align: center;
+}
+
+.butao {
+  border: 3px outset #0E2F44;
+}
+
+.sidenav, .dark-mode .sidenav {
+  background-color: #0E2F44;
+}
+.sidenav a, .dark-mode .sidenav a {
+  color: #FF4040;
+}
+.sidenav a:hover {
+  color: #f1f1f1;
 }
 
 html {
@@ -125,11 +197,15 @@ html {
 }
 
 #symbol {
-  border: 3px solid #0E2F44;
+  border: 3px inset #FF4040;
   border-radius: 12px;
-  background-color: #FF4040;
+  background-color: #0E2F44;
   margin-right: 35px;
   float: right;
+}
+
+#icon {
+  color: #FF4040;
 }
 
 .title {
@@ -138,7 +214,7 @@ html {
   text-align: center;
 }
 
-.tI-light, .S-light, .pF-light, .sS-light {
+.tI-light, .downbar, .S-light, .pF-light, .sS-light {
   border: 4px outset #0E2F44;
   border-radius: 12px;
   margin-top: 25px;
@@ -159,10 +235,9 @@ html {
 
 .Proficiencies select, .Proficiencies button {
   float: right;
-  border-radius: 12px;
 }
 .Proficiencies button {
-  padding: 7px;
+  padding: 0.71%;
 }
 
 .armor, .languages, .gaming, .instruments, .weapons {
@@ -179,6 +254,7 @@ html {
   margin-top: 50px;
   margin-left: 75px;
   margin-right: 75px;
+  padding: 0.71%;
   background-color: rgba(255, 64, 64, 0.45);
 }
 
@@ -186,21 +262,163 @@ html {
   height: 100%;
 }
 
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+  margin-top: 25px;
+}
+.switch input, .switch #classII {
+  opacity: 0;
+  width: 0;
+  height: 0;
+  margin-left: 25px;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #000000;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: #FF4040;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+.slider.round {
+  border-radius: 34px;
+}
+.slider.round:before {
+  border-radius: 50%;
+}
+
+#slider-lt:checked + .slider {
+  background-color: #000000;
+}
+#slider-lt:checked + .slider:before {
+  background-color: #FFFCFC;
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+#slider-lt:checked:focus + .slider {
+  box-shadow: 0 0 1px #000000;
+}
+
+.downbar {
+  padding: 0.71%;
+}
+
+.shield {
+  float: left;
+}
+
+.Death {
+  float: left;
+  width: 33.33%;
+  border: 1px solid black;
+}
+
+.Dslabel:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.FSaves {
+  width: 1.3em;
+  height: 1.3em;
+  background-color: #0E2F44;
+  border-radius: 50%;
+  vertical-align: middle;
+  border: 1px solid #000000;
+  appearance: none;
+  -webkit-appearance: none;
+  outline: none;
+  cursor: pointer;
+}
+.FSaves:checked {
+  background-color: #FF4040;
+}
+
+.SSaves {
+  width: 1.3em;
+  height: 1.3em;
+  background-color: #0E2F44;
+  border-radius: 50%;
+  vertical-align: middle;
+  border: 1px solid #000000;
+  appearance: none;
+  -webkit-appearance: none;
+  outline: none;
+  cursor: pointer;
+}
+.SSaves:checked {
+  background-color: #FFFCFC;
+}
+
 .dark-mode {
-  background-image: url("https://preview.redd.it/fhw62fs8e0b61.jpg?width=1920&format=pjpg&auto=webp&s=7122c1eabc5d9541541505619fc9095b3fd13ef8");
+  background-image: url("https://www.wallpaperflare.com/static/499/597/100/fantasy-art-aliens-black-grey-wallpaper.jpg");
   background-repeat: no-repeat;
-  background-size: auto;
+  background-size: cover;
   color: #0AD13F;
 }
-.dark-mode #symbol {
-  border: 3px solid #3A2F37;
+.dark-mode select, .dark-mode .Proficiencies button, .Proficiencies .dark-mode button {
+  background-color: rgba(255, 64, 64, 0);
+  color: #0AD13F;
+}
+.dark-mode input, .dark-mode #classII {
+  margin-right: 17.5px;
+  border: 0px solid black;
+  background-color: rgba(255, 64, 64, 0);
+  color: #0AD13F;
+}
+.dark-mode .butao {
+  border: 3px outset #8F8C04;
+}
+.dark-mode .modal-content, .dark-mode .modalSpeed-content {
+  margin: auto;
+  padding: 2.03334689%;
+  width: 80%;
+  border: 3px outset #8F8C04;
   border-radius: 12px;
-  background-color: #0AD13F;
+  background-color: rgba(97, 97, 97, 0.45);
+}
+.dark-mode #symbol {
+  border: 3px inset #0AD13F;
+  border-radius: 12px;
+  background-color: #3A2F37;
   margin-right: 35px;
   float: right;
 }
+.dark-mode #dk-icon {
+  color: #0AD13F;
+}
+.dark-mode .sidenav {
+  background-color: #3A2F37;
+  color: #8F8C04;
+}
+.dark-mode .sidenav a {
+  color: #0AD13F;
+}
+.dark-mode .sidenav a:hover {
+  color: #8F8C04;
+}
 .dark-mode .hidden {
-  display: block;
+  display: inline-block;
 }
 .dark-mode .show {
   display: none;
@@ -211,8 +429,8 @@ html {
   width: 75%;
   text-align: center;
 }
-.dark-mode .tI-dark, .dark-mode .S-dark, .dark-mode .pF-dark, .dark-mode .sS-dark {
-  border: 3px outset #8F8C04;
+.dark-mode .tI-dark, .dark-mode .downbar, .dark-mode .S-dark, .dark-mode .pF-dark, .dark-mode .sS-dark {
+  border: 4px outset #8F8C04;
   border-radius: 12px;
   margin-top: 25px;
   background-color: rgba(97, 97, 97, 0.45);
@@ -229,4 +447,97 @@ html {
 }
 .dark-mode .S-dark {
   height: 100%;
+}
+.dark-mode .border {
+  border: 4px outset #8F8C04;
+  border-radius: 12px;
+  margin-top: 50px;
+  margin-left: 75px;
+  margin-right: 75px;
+  padding: 0.71%;
+  background-color: rgba(97, 97, 97, 0.45);
+}
+.dark-mode .switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+.dark-mode .switch input, .dark-mode .switch #classII {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.dark-mode .slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #616161;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+.dark-mode .slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: #8F8C04;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+.dark-mode .slider.round {
+  border-radius: 34px;
+}
+.dark-mode .slider.round:before {
+  border-radius: 50%;
+}
+.dark-mode #slider-dk:checked + .slider {
+  background-color: #616161;
+}
+.dark-mode #slider-dk:checked + .slider:before {
+  background-color: #0AD13F;
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+.dark-mode #slider-dk:checked:focus + .slider {
+  box-shadow: 0 0 1px #616161;
+}
+.dark-mode .FSaves {
+  width: 1.3em;
+  height: 1.3em;
+  background-color: white;
+  border-radius: 50%;
+  vertical-align: middle;
+  border: 1px solid #ddd;
+  appearance: none;
+  -webkit-appearance: none;
+  outline: none;
+  cursor: pointer;
+}
+.dark-mode .FSaves:checked {
+  background-color: gray;
+}
+.dark-mode .SSaves {
+  width: 1.3em;
+  height: 1.3em;
+  background-color: #FFFCFC;
+  border-radius: 50%;
+  vertical-align: middle;
+  border: 1px solid #ddd;
+  appearance: none;
+  -webkit-appearance: none;
+  outline: none;
+  cursor: pointer;
+}
+.dark-mode .SSaves:checked {
+  background-color: #FFFF66;
+}
+.dark-mode .downbar {
+  padding: 0.71%;
 }
