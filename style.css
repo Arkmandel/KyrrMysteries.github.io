@@ -153,7 +153,9 @@ select, .Proficiencies button {
   background-color: rgba(255, 64, 64, 0);
   color: #FFFF66;
 }
-
+select option, .dark-mode select optgroup, .Proficiencies button option, select optgroup, .Proficiencies button optgroup {
+  color: #000000;
+}
 input, #classII {
   margin-right: 17.5px;
   border: 0px solid black;
@@ -379,6 +381,9 @@ html {
 .dark-mode select, .dark-mode .Proficiencies button, .Proficiencies .dark-mode button {
   background-color: rgba(255, 64, 64, 0);
   color: #0AD13F;
+}
+.dark-mode select option, .dark-mode select optgroup, .dark-mode .Proficiencies button option, .dark-mode .Proficiencies button optgroup, .Proficiencies .dark-mode button option, .Proficiencies .dark-mode button optgroup {
+  color: #000000;
 }
 .dark-mode input, .dark-mode #classII {
   margin-right: 17.5px;
