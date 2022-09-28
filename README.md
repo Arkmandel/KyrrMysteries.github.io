@@ -1,4 +1,4 @@
-# Ficha de Personagem de Kyrr **v0.65**
+# Ficha de Personagem de Kyrr **v0.7**
 
 Criado para facilitar a vida do Mestre e dos jogadores para jogarmos nossa campanha sem problemas com a ficha classica e sua incrivel falta de customização.
 Aconselho a meus jogadores, caso se sintam inspirados criarem seus proprios mundos ou suas proprias historias dentro de Kyrr. Ficarei muito grato em poder ajudar e jogar em suas aventuras como mestres e fiquem a vontade de usarem essa ficha com seus jogadores.
