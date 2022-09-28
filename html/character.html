@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - Character</title>
+  <link href='https://fonts.googleapis.com/css?family=Almendra SC' rel='stylesheet'><link rel="stylesheet" href="../css/character.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<header>
+  <div class="sidenav" id="mySidenav-light"><a class="closebtn" href="javascript:void(0)" onclick="closeNavlt()">&times;</a><a href="../index.html">&#9791; Página Principal</a><a href="./character.html">&#128781; Caracteristicas</a><a href="./spells.html">&#128770; Magias</a></div><span class="show" style="font-size: 30px; cursor: pointer" onclick="openNavlt()">&#128788;</span>
+  <div class="sidenav hidden" id="mySidenav-dark"><a class="closebtn" href="javascript:void(0)" onclick="closeNavdk()">&times;</a><a href="../index.html">&#11934; Página Principal</a><a href="./character.html">&#128794; Caracteristicas</a><a href="./spells.html">&#128855; Magias</a></div><span class="hidden" style="font-size: 30px; cursor: pointer" onclick="openNavdk()">&#128868;</span>
+  <button id="symbol" style="font-size: 2.1em; cursor: pointer" onclick="DarkMode()"><span class="show" id="icon">&#128826;</span><span class="hidden" id="dk-icon">&#128867;</span></button>
+</header>
+<div class="row">
+  <div class="column imageHolder" style="background-color:rgba(255, 255, 255, 0)">
+    <div class="Holder" id="imageHoder"><img/>
+      <div class="container">
+        <p id="descricao"></p>
+      </div>
+    </div>
+    <input id="image-input" type="file" accept="image/jpeg, image/png, image/jpg"/><br/>
+    <div class="slidecontainer" id="myRangeOvCont" style="display:none">
+      <input class="sliderB" id="myRangeOv" type="range" min="1" max="52" value="1"/>
+      <div class="containerB">
+        <p>Valor: <span id="valorOv"></span>%</p>
+      </div>
+    </div>
+    <div class="slidecontainer" id="myRangeRdCont" style="display:none">
+      <input class="sliderB" id="myRangeRd" type="range" min="1" max="197" value="1"/>
+      <div class="containerB">
+        <p>Valor: <span id="valorRd"></span>px</p>
+      </div>
+    </div>
+    <input id="moldura" type="button" value="Escolher forma da imagem"/>
+    <select id="estilo" style="display:none" onchange="imagem_design();">
+      <option value="none">Escolha uma opção</option>
+      <option value="redondo">Bordas Arredondadas</option>
+      <option value="oval">Imagem Ovalada</option>
+      <optgroup label="Moldurada">
+        <option value="molduraAR">Auto-Relevo</option>
+        <option value="molduraBR">Baixo-Relevo</option>
+      </optgroup>
+      <option value="polaroid">Polaroid</option>
+    </select>
+    <button id="notLike" style="display:none">Retornar as opções de Moldura</button>
+    <button id="conValue" style="display:none">Confirmar Valor da borda</button>
+  </div>
+  <div class="column Ante">
+    <p id="name"></p>
+    <label for="#background">Antecedente</label>
+    <select id="background">
+      <option>Escolha um Antecedente</option>
+      <option>Acólito</option>
+      <optgroup label="Artesão de Guilda">
+        <option>Artesão de Guilda</option>
+        <option>Mercador de Guilda</option>
+      </optgroup>
+      <optgroup label="Artista">
+        <option>Artista</option>
+        <option>Gladiador</option>
+      </optgroup>
+      <option>Charlatão</option>
+      <optgroup label="Criminoso">
+        <option>Criminoso</option>
+        <option>Espião</option>
+      </optgroup>
+      <option>Eremita</option>
+      <option>Forasteiro</option>
+      <option>Herói do Povo</option>
+      <optgroup label="Marinheiro">
+        <option>Marinheiro</option>
+        <option>Pirata</option>
+      </optgroup>
+      <optgroup label="Nobre">
+        <option>Nobre</option>
+        <option>Cavaleiro</option>
+      </optgroup>
+      <option>Órfão</option>
+      <option>Sábio</option>
+      <option>Soldado</option>
+    </select>
+    <div class="row caracte">
+      <div class="column Leftness">
+        <textarea contenteditable="true" cols="25" rows="5" placeholder="Motivações de Personagem"></textarea><br/>
+        <textarea contenteditable="true" cols="25" rows="5" placeholder="Afiliações de Personagem"></textarea>
+      </div>
+      <div class="column rigntess" style="background-color:rgba(255,255,255,0)">
+        <textarea contenteditable="true" cols="25" rows="5" placeholder="Traços de Personalidade"></textarea><br/>
+        <textarea contenteditable="true" cols="25" rows="5" placeholder="Falhas de Caracter"></textarea>
+      </div>
+    </div>
+    <textarea id="backstory" contenteditable="true" cols="85" rows="5" placeholder="Historia do Personagem"></textarea>
+    <div class="row coluna">
+      <div class="column" style="background-color:rgba(255,255,255,0)">
+        <textarea id="notas" contenteditable="true" cols="37" rows="5" placeholder="Notas"></textarea>
+      </div>
+      <div class="column" style="background-color:rgba(255,255,255,0); width:50%">
+        <div class="coins">
+          <div class="row obS">
+            <div class="column bS" style="background-color:rgba(255,255,255,0)">
+              <label class="coinage" id="copper" for="#copperI">Cobre
+                <input id="copperI" type="number" min="0" max="5000"/>
+              </label><br/><br/>
+              <label class="coinage" id="silver" for="#silverI">Prata
+                <input id="silverI" type="number" min="0" max="5000"/>
+              </label><br/><br/>
+              <label class="coinage" id="jkro" for="#jkroI">Jkro
+                <input id="jkroI" type="number" min="0" max="5000"/>
+              </label>
+            </div>
+            <div class="column bS" style="background-color:rgba(255,255,255,0)">
+              <label class="coinage" id="electrum" for="#electrumI">Electrum
+                <input id="electrumI" type="number" min="0" max="5000"/>
+              </label><br/><br/>
+              <label class="coinage" id="gold" for="#goldI">Ouro
+                <input id="goldI" type="number" min="0" max="5000"/>
+              </label><br/><br/>
+              <label class="coinage" id="platinum" for="#platinumI">Platina
+                <input id="platinumI" type="number" min="0" max="5000"/>
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- partial -->
+  <script src='https://codepen.io/arkmandel/pen/wvjwomP.js'></script><script  src="../js/character.js"></script>
+
+</body>
+</html>

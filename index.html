@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="pt" >
+<head>
+  <meta charset="UTF-8">
+  <title>Kyrr Character Sheet v0.7</title>
+  <link href='https://fonts.googleapis.com/css?family=Almendra SC' rel='stylesheet'><link rel="stylesheet" href="./css/style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<header>
+  <div class="sidenav" id="mySidenav-light"><a class="closebtn" href="javascript:void(0)" onclick="closeNavlt()">&times;</a><a href="./index.html">&#9791; Página Principal</a><a href="./html/character.html">&#128781; Caracteristicas</a><a href="./html/spells.html">&#128770; Magias</a>
+    <label for="#usemanpv">Usar PV Manual?</label>
+    <label class="switch" id="usemanpv">
+      <input id="slider-lt" type="checkbox" onclick="disablt()"/><span class="slider round"></span>
+    </label>
+  </div><span class="show" style="font-size: 30px; cursor: pointer" onclick="openNavlt()">&#128788;</span>
+  <div class="sidenav hidden" id="mySidenav-dark"><a class="closebtn" href="javascript:void(0)" onclick="closeNavdk()">&times;</a><a href="./index.html">&#11934; Página Principal</a><a href="./html/character.html">&#128794; Caracteristicas</a><a href="./html/spells.html">&#128855; Magias</a>
+    <label for="#usemanpv-dk">Usar PV Manual?</label>
+    <label class="switch" id="usemanpv-dk">
+      <input id="slider-dk" type="checkbox" onclick="disabdk()"/><span class="slider round"></span>
+    </label>
+  </div><span class="hidden" style="font-size: 30px; cursor: pointer" onclick="openNavdk()">&#128868;</span>
+  <button id="symbol" style="font-size: 2.1em; cursor: pointer" onclick="DarkMode()"><span class="show" id="icon">&#128826;</span><span class="hidden" id="dk-icon">&#128867;</span></button>
+  <h1 class="title">Ficha de Personagem</h1>
+</header>
+<div class="topInfo tI-light tI-dark">
+  <Section class="characterInfo Info"> 
+    <label for="nameC">Nome do Personagem:
+      <input id="nameC" type="text" placeholder="Aron Callins VI"/>
+    </label>
+    <label for="nameP"> <br/>Nome do Jogador:
+      <input id="nameP" type="text" placeholder="Joaquim Barbacena"/>
+    </label>
+    <label for="raceSelect"> <br/>Raça:
+      <select id="raceSelect" name="race" onchange="raceSelect(this);">
+        <option value="none">None</option>
+        <optgroup label="Aarakocra"></optgroup>
+        <option id="aarakocra" value="aarakocra">Aarakocra</option>
+        <optgroup label="Aasimar"></optgroup>
+        <option id="caido" value="caido">Aasimar Caído</option>
+        <option id="flagelador" value="flagelador">Aasimar Flagelador</option>
+        <option id="protetor" value="protetor">Aasimar Protetor</option>
+        <optgroup label="Anão"></optgroup>
+        <option id="colina" value="colina">Anão da colina</option>
+        <option id="duegar" value="duegar">Duegar</option>
+        <option id="montanha" value="barbaro">Anão da montanha</option>
+        <optgroup label="Antari"></optgroup>
+        <option id="antari" value="antari">Antari</option>
+        <optgroup label="Bugbear"></optgroup>
+        <option id="bugbear" value="bugbear">Bugbear</option>
+        <optgroup label="Centauro"></optgroup>
+        <option id="centauro" value="centauro">Centauro</option>
+        <optgroup label="Draconato"></optgroup>
+        <option id="azul" value="azul">Draconato Azul</option>
+        <option id="branco" value="branco">Draconato Branco</option>
+        <option id="bronze" value="bronze">Draconato Bronze/option></option>
+        <option id="cobre" value="cobre">Draconato Cobre</option>
+        <option id="latao" value="latao">Draconato Latão</option>
+        <option id="negro" value="negro">Draconato Negro</option>
+        <option id="ouro" value="ouro">Draconato Ouro</option>
+        <option id="prata" value="prata">Draconato Prata</option>
+        <option id="verde" value="verde">Draconato Verde</option>
+        <option id="vermelho" value="vermelho">Draconato Vermelho</option>
+        <optgroup label="Elfo"></optgroup>
+        <option id="sol" value="sol">Alto Elfo do Sol</option>
+        <option id="lua" value="lua">Alto Elfo da Lua</option>
+        <option id="drow" value="drow">Drow</option>
+        <option id="floresta" value="floresta">Elfo da Floresta</option>
+        <option id="sea" value="sea">Elfo do Mar</option>
+        <option id="inverno" value="inverno">Eladrin do Inverno</option>
+        <option id="outono" value="outono">Eladrin do Outono</option>
+        <option id="primavera" value="primavera">Eladrin da Primaveira</option>
+        <option id="verao" value="verao">Eladrin do Verão</option>
+        <option id="shadarkai" value="shadarkai">Shadar-Kai</option>
+        <optgroup label="Firbolg"></optgroup>
+        <option id="firbolg" value="firbolg">Firbolg</option>
+        <optgroup label="Genasi"></optgroup>
+        <option id="ar" value="none">Genasi do Ar</option>
+        <option id="agua" value="agua">Genasi da Água</option>
+        <option id="fogo" value="fogo">Genasi do Fogo</option>
+        <option id="terra" value="terra">Genasi da Terra</option>
+        <optgroup label="Gith"></optgroup>
+        <option id="githyanki" value="githyanki">Githyanki</option>
+        <option id="githzerai" value="githzerai">Githzerai</option>
+        <optgroup label="Gnomo"></optgroup>
+        <option id="gfloresta" value="gfloresta">Gnomo da Floresta</option>
+        <option id="grochas" value="grochas">Gnomo das Rochas</option>
+        <option id="gprofundezas" value="gprofundezas">Svirfneblin</option>
+        <optgroup label="Goblin"></optgroup>
+        <option id="goblin" value="goblin">Goblin</option>
+        <optgroup label="Golias"></optgroup>
+        <option id="golias" value="golias">Golias</option>
+        <optgroup label="Halfling"></optgroup>
+        <option id="fanstasma" value="fanstasma">Halfling Fantasma</option>
+        <option id="pesleves" value="pesleves">Halfling Pés Leves</option>
+        <option id="valente" value="valente">Halfling Valente</option>
+        <optgroup label="Humano"></optgroup>
+        <option id="humano" value="humano">Humano</option>
+        <optgroup label="Kenku"></optgroup>
+        <option id="kenku" value="kenku">Kenku</option>
+        <optgroup label="Kobold"></optgroup>
+        <option id="kobold" value="kobold">Kobold</option>
+        <optgroup label="Meio-Elfo"></optgroup>
+        <option id="meioelfo" value="meioelfo">Meio-Elfo</option>
+        <optgroup label="Meio-Orc"></optgroup>
+        <option id="meioorc" value="meioorc">Meio-Orc</option>
+        <optgroup label="Minotauro"></optgroup>
+        <option id="minotauro" value="minotauro">Minotauro</option>
+        <optgroup label="Povo-Lagarto"></optgroup>
+        <option id="povolagarto" value="povolagarto">Povo-Lagarto</option>
+        <optgroup label="Tabaxi"></optgroup>
+        <option id="tabaxi" value="tabaxi">Tabaxi</option>
+        <optgroup label="Tiefling"></optgroup>
+        <option id="asmodeus" value="asmodeus">Asmodeus</option>
+        <option id="baalzebul" value="baalzebul">Baalzebul</option>
+        <option id="dispater" value="dispater">Dispater</option>
+        <option id="fierna" value="fierna">Fierna</option>
+        <option id="glasya" value="glasya">Glasya</option>
+        <option id="levistus" value="levistus">Levistus</option>
+        <option id="mammon" value="mammon">Mammon</option>
+        <option id="mephistopheles" value="mephistopheles">Mephistopheles</option>
+        <option id="zariel" value="zariel">Zariel</option>
+        <optgroup label="Tritão"></optgroup>
+        <option id="tritao" value="tritao">Tritão</option>
+        <optgroup label="Yuan-Ti"></optgroup>
+        <option id="yuanti" value="yuanti">Yuan-Ti</option>
+        <optgroup label="Outros"></optgroup>
+        <option id="alfy" value="alfy">Alfy</option>
+      </select>
+    </label><br/>
+    <button class="butao Info" id="myBtn">Escolher Bônus Raciais</button>
+    <p id="test"></p>
+    <!-- The Modal-->
+    <div class="modal" id="myModal">
+      <!-- Modal content-->
+      <div class="modal-content"><span class="close">&times;</span>
+        <p>Escolha como será seu aumento nos atributos!</p>
+        <select id="choice" onchange="attributeDistrib(this);">
+          <caption>Como voce quer distribuir os atributos?</caption>
+          <option value="none">Escolha um</option>
+          <option value="TwoOne">+2em um atributo, e +1 em outro atributo</option>
+          <option value="triple">+1 em tres atributos diferentes</option>
+        </select>
+        <select class="TwonOne" name="PlusTwo" style="display: none">
+          <caption>Qual atributo tera o +2</caption>
+          <option>Escolha um atributo</option>
+          <option value="Carisma">Carisma</option>
+          <option value="Constituição">Constituicao</option>
+          <option value="Destreza">Destreza</option>
+          <option value="Força">Forca</option>
+          <option value="Inteligência">Inteligencia</option>
+          <option value="Sabedoria">Sabedoria</option>
+          <option value="Sanidade">Sanidade</option>
+        </select>
+        <select id="OnenTwo" name="PlusOne" style="display: none">
+          <caption>Qual atributo tera o +1</caption>
+          <option>Escolha um atributo</option>
+          <option value="Carisma">Carisma</option>
+          <option value="Constituição">Constituicao</option>
+          <option value="Destreza">Destreza</option>
+          <option value="Força">Forca</option>
+          <option value="Inteligência">Inteligencia</option>
+          <option value="Sabedoria">Sabedoria</option>
+          <option value="Sanidade">Sanidade</option>
+        </select>
+        <button id="confir">Confirmar Mudanças</button>
+        <select id="One" name="PlusOne1" style="display: none">
+          <caption>Qual atributo tera o +2</caption>
+          <option>Escolha um atributo</option>
+          <option value="Carisma">Carisma</option>
+          <option value="Constituição">Constituicao</option>
+          <option value="Destreza">Destreza</option>
+          <option value="Força">Forca</option>
+          <option value="Inteligência">Inteligencia</option>
+          <option value="Sabedoria">Sabedoria</option>
+          <option value="Sanidade">Sanidade</option>
+        </select>
+        <select id="Onee" name="PlusOne2" style="display: none">
+          <caption>Qual atributo tera o +1</caption>
+          <option>Escolha um atributo</option>
+          <option value="Carisma">Carisma</option>
+          <option value="Constituição">Constituicao</option>
+          <option value="Destreza">Destreza</option>
+          <option value="Força">Forca</option>
+          <option value="Inteligência">Inteligencia</option>
+          <option value="Sabedoria">Sabedoria</option>
+          <option value="Sanidade">Sanidade</option>
+        </select>
+        <select id="Oneee" name="PlusOne3" style="display: none">
+          <caption>Qual atributo tera o +1</caption>
+          <option>Escolha um atributo</option>
+          <option value="Carisma">Carisma</option>
+          <option value="Constituição">Constituicao</option>
+          <option value="Destreza">Destreza</option>
+          <option value="Força">Forca</option>
+          <option value="Inteligência">Inteligencia</option>
+          <option value="Sabedoria">Sabedoria</option>
+          <option value="Sanidade">Sanidade</option>
+        </select>
+        <button id="confirTriple">Confirmar Mudanças</button>
+      </div>
+    </div>
+  </Section>
+  <Section class="classInfo Info">
+    <label for="totalLevel">Nível do Personagem:
+      <input id="totalLevel" type="text" size="2" readonly="readonly"/>
+    </label>
+    <label for="class"><br/>Classe:
+      <select id="class" onchange="ChangeClass(this);">
+        <option>Escolha uma Classe</option>
+        <optgroup label="Conjurador">
+          <option>Bardo</option>
+          <option>Bruxo</option>
+          <option>Clérigo</option>
+          <option>Druida</option>
+          <option>Feiticeiro</option>
+          <option>Mago</option>
+        </optgroup>
+        <optgroup label="Corpo-a-Corpo">
+          <option>Bárbaro</option>
+          <option>Guerreiro</option>
+          <option>Monge</option>
+          <option>Paladino</option>
+        </optgroup>
+        <optgroup label="Especialista">
+          <option>Artifice</option>
+          <option>Ladino</option>
+          <option>Ranger</option>
+          <option>Homeopata</option>
+        </optgroup>
+      </select>
+      <label for="levelClass"><br/>Nível<span id="primaryClass">Classe:</span>
+        <input id="levelClass" type="number" min="1" max="20" value="1" onchange="UpdateTotal();"/>
+      </label>
+      <label for="multClass">Multiclasse?
+        <input id="multClass" type="checkbox" onclick="Hidden();"/>
+      </label>
+    </label>
+  </Section>
+  <Section class="multiClass Info" style="display: none">
+    <label for="classII">Classe:
+      <select id="classII" onchange="ChangeClassII(this);">
+        <option>Escolha uma Classe</option>
+        <optgroup label="Conjurador">
+          <option>Bardo</option>
+          <option>Bruxo</option>
+          <option>Clérigo</option>
+          <option>Druida</option>
+          <option>Feiticeiro</option>
+          <option>Mago</option>
+        </optgroup>
+        <optgroup label="Corpo-a-Corpo">
+          <option>Bárbaro</option>
+          <option>Guerreiro</option>
+          <option>Monge</option>
+          <option>Paladino</option>
+        </optgroup>
+        <optgroup label="Especialista">
+          <option>Artifice</option>
+          <option>Ladino</option>
+          <option>Ranger</option>
+          <option>Homeopata</option>
+        </optgroup>
+      </select>
+    </label>
+    <label for="levelClassII">Nível<span id="secondaryClass">Classe:</span>
+      <input id="levelClassII" type="number" min="0" max="20" onchange="UpdateTotal();" value="0"/>
+    </label>
+  </Section>
+</div>
+<div class="row">
+  <div class="column left">
+    <Section class="scoresSaves sS-light sS-dark">
+      <table>
+        <caption>Valores de Habilidade</caption>
+        <tr>
+          <th>Habilidade</th>
+          <th>Modificador</th>
+          <th>Valor</th>
+          <th>TR</th>
+          <th>Prof</th>
+        </tr>
+        <tr>
+          <td>Carisma</td>
+          <td>
+            <input id="chaMod" type="text" size="2" contenteditable="false" readonly="readonly"/>
+          </td>
+          <td>
+            <input id="chaScr" type="number" min="1" max="20" value="8" onchange="Modifiers();SavingThrows();Skills();"/>
+          </td>
+          <td> 
+            <input id="saveValueCha" type="text" size="2" readonly="readonly"/>
+          </td>
+          <td>
+            <input id="chaProf" type="checkbox" onchange="SavingThrows();"/>
+          </td>
+        </tr>
+        <tr>
+          <td>Constituição</td>
+          <td>
+            <input id="conMod" type="text" size="2" contenteditable="false" readonly="readonly"/>
+          </td>
+          <td>
+            <input id="conScr" type="number" min="1" max="20" value="8" onchange="Modifiers();SavingThrows();Skills();"/>
+          </td>
+          <td> 
+            <input id="saveValueCon" type="text" size="2" readonly="readonly"/>
+          </td>
+          <td>
+            <input id="conProf" type="checkbox" onchange="SavingThrows();"/>
+          </td>
+        </tr>
+        <tr>
+          <td>Destreza</td>
+          <td>
+            <input id="dexMod" type="text" size="2" contenteditable="false" readonly="readonly"/>
+          </td>
+          <td>
+            <input id="dexScr" type="number" min="1" max="20" value="8" onchange="Modifiers();SavingThrows();Skills();"/>
+          </td>
+          <td> 
+            <input id="saveValueDex" type="text" size="2" readonly="readonly"/>
+          </td>
+          <td>
+            <input id="dexProf" type="checkbox" onchange="SavingThrows();"/>
+          </td>
+        </tr>
+        <tr>
+          <td>Força</td>
+          <td>
+            <input id="strMod" type="text" size="2" contenteditable="false" readonly="readonly"/>
+          </td>
+          <td>
+            <input id="strScr" type="number" min="1" max="20" value="8" onchange="Modifiers();SavingThrows();Skills();"/>
+          </td>
+          <td> 
+            <input id="saveValueStr" type="text" size="2" readonly="readonly"/>
+          </td>
+          <td>
+            <input id="strProf" type="checkbox" onchange="SavingThrows();"/>
+          </td>
+        </tr>
+        <tr>
+          <td>Inteligência</td>
+          <td>
+            <input id="intMod" type="text" size="2" contenteditable="false" readonly="readonly"/>
+          </td>
+          <td>
+            <input id="intScr" type="number" min="1" max="20" value="8" onchange="Modifiers();SavingThrows();Skills();"/>
+          </td>
+          <td> 
+            <input id="saveValueInt" type="text" size="2" readonly="readonly"/>
+          </td>
+          <td>
+            <input id="intProf" type="checkbox" onchange="SavingThrows();"/>
+          </td>
+        </tr>
+        <tr>
+          <td>Sabedoria</td>
+          <td>
+            <input id="wisMod" type="text" size="2" contenteditable="false" readonly="readonly"/>
+          </td>
+          <td>
+            <input id="wisScr" type="number" min="1" max="20" value="8" onchange="Modifiers();SavingThrows();Skills();"/>
+          </td>
+          <td> 
+            <input id="saveValueWis" type="text" size="2" readonly="readonly"/>
+          </td>
+          <td>
+            <input id="wisProf" type="checkbox" onchange="SavingThrows();"/>
+          </td>
+        </tr>
+        <tr>
+          <td>Sanidade</td>
+          <td>
+            <input id="sanMod" type="text" size="2" readonly="readonly"/>
+          </td>
+          <td>
+            <input id="sanScr" type="number" min="1" max="20" value="8" onchange="Modifiers();SavingThrows();Skills();"/>
+          </td>
+          <td> 
+            <input id="saveValueSan" type="text" size="2" readonly="readonly"/>
+          </td>
+          <td>
+            <input id="sanProf" type="checkbox" onchange="SavingThrows();"/>
+          </td>
+        </tr>
+      </table>
+      <Section class="proficienciesFeats pF-light pF-dark">
+        <div class="Proficiencies">
+          <h2>Proficiencias e Talentos</h2>
+          <div class="armor">
+            <label for="#armorp">Armadura:
+              <select id="armorp">
+                <option>none</option>
+                <option>Armadura Leve</option>
+                <option>Armadura Média</option>
+                <option>Armadura Pesada</option>
+                <option>Todas</option>
+              </select>
+            </label>
+          </div>
+          <div class="weapons">
+            <label for="#weaponp">Arma:
+              <select id="weaponp" onchancge="otherWeapons()">
+                <option>none</option>
+                <option>Armas Simples</option>
+                <option>Armas Marciais</option>
+                <option>Todas</option>
+                <option>Outros</option>
+              </select>
+            </label>
+          </div>
+          <div class="languages">
+            <label for="#langp">Quais idiomas você conhece?
+              <button id="langp" onclick="Transpose()">&#9908</button>
+            </label>
+            <p id="langtext"></p>
+          </div>
+          <div class="tools">
+            <label for="#toolp">Quais Ferramentas você sabe usar?
+              <button id="toolp" onclick="Tools()">&#9874</button>
+            </label>
+            <p id="tooltext"></p>
+          </div>
+        </div>
+      </Section>
+    </Section>
+  </div>
+  <div class="column">
+    <Section class="middleSection">
+      <div class="speedInitiative border">
+        <label for="#profValue">Bônus de Proficiência:
+          <input id="profValue" type="text" size="2" readonly="readonly"/>
+        </label><br/>
+        <label for="#Initiative">Iniciativa:
+          <input id="Initiative" type="text" size="2" readonly="readonly"/>
+        </label><br/>
+        <label for="#speed">Deslocamento (Caminhada)</label>
+        <input id="speed" type="text" size="3" readonly="readonly"/>
+        <div class="modalSpeed" id="mySpeedModal">
+          <!-- Modal content-->
+          <div class="modalSpeed-content">
+            <p>Sua velocidade de Caminhada é de:<span id="walk"> </span>m.</p>
+            <p>Sua velocidade de Escalada é de:<span id="climb"> </span>m.</p>
+            <p>Sua velocidade de Nado é de:<span id="swim"> </span>m.</p>
+            <p>Sua velocidade de Vôo é de:<span id="fly"> </span>m.</p>
+          </div>
+        </div>
+      </div>
+      <div class="acLife border">
+        <label for="Ac">Classe de Armadura
+          <input id="Ac" type="text" size="3" readonly="readonly"/>
+        </label><br/>
+        <label id="PAuto" for="#lifeTotal">PV Total:
+          <input id="lifeTotal" type="text" size="2" readonly="readonly"/>
+        </label>
+        <label id="Manual" for="lifeTotalMan">PV Total:
+          <input id="lifeTotalMan" type="number" min="0" max="330"/>
+        </label>
+        <label id="hitDie" for="die">Dados de Vida:
+          <input id="die" type="text" size="2" readonly="readonly"/>
+        </label><br/>
+        <label id="PasP" for="pasP">Percepção Passiva:
+          <input id="pasP" type="text" size="3" readonly="readonly"/>
+        </label><br/>
+        <label id="PVAtuallabel" for="#PVAtual">PV Restante:
+          <input id="PVAtual" type="number" min="0" max="350"/>
+        </label>
+      </div>
+      <div class="dsSpellDC border">
+        <label id="Death" for="#dSaves">Testes de Morte:<br/>
+          <label class="Dslabel" id="DeathS">
+            <label for=".SSaves">Sucessos
+              <input class="SSaves Death" type="checkbox"/>
+              <input class="SSaves Death" type="checkbox"/>
+              <input class="SSaves Death" type="checkbox"/>
+            </label>
+          </label><br/>
+          <label class="Dslabel" id="DeathF">
+            <label for=".FSaves">Falhas
+              <input class="FSaves Death" type="checkbox"/>
+              <input class="FSaves Death" type="checkbox"/>
+              <input class="FSaves Death" type="checkbox"/>
+            </label>
+          </label>
+        </label>
+        <label id="SpellDc" for="#SpDc">CD de Magia
+          <input id="SpDc" type="text" size="3" readonly="readonly"/>
+        </label><br/>
+        <label id="SpellAttk" for="SpAtk">Ataque de Magia
+          <input id="SpAtk" type="text" size="3" readonly="readonly"/>
+        </label>
+      </div>
+    </Section>
+  </div>
+  <div class="column">
+    <Section class="skills S-light S-dark">
+      <table>
+        <caption>Pericias</caption>
+        <tr>
+          <th>Pericias</th>
+          <th>Habilidade</th>
+          <th>Proficiente</th>
+          <th>Valor</th>
+        </tr>
+        <tr>
+          <td class="skname">Acrobacia</td>
+          <td>Destreza</td>
+          <td> 
+            <input id="profAcro" type="checkbox" onchange="Skills();"/>
+          </td>
+          <td> 
+            <input id="totAcro" type="text" size="2" onchange="Skills();" readonly="readonly"/>
+          </td>
+        </tr>
+        <tr>
+          <td class="skname">Adestrar Animais</td>
+          <td>Sabedoria</td>
+          <td> 
+            <input id="profAdes" type="checkbox" onchange="Skills();"/>
+          </td>
+          <td> 
+            <input id="totAdes" type="text" size="2" onchange="Skills();" readonly="readonly"/>
+          </td>
+        </tr>
+        <tr>
+          <td class="skname">Arcanismo</td>
+          <td>Inteligência</td>
+          <td> 
+            <input id="profArcan" type="checkbox" onchange="Skills();"/>
+          </td>
+          <td> 
+            <input id="totArcan" type="text" size="2" onchange="Skills();" readonly="readonly"/>
+          </td>
+        </tr>
+        <tr>
+          <td class="skname">Atletismo</td>
+          <td>Força</td>
+          <td> 
+            <input id="profAthe" type="checkbox" onchange="Skills();"/>
+          </td>
+          <td> 
+            <input id="totAthe" type="text" size="2" onchange="Skills();" readonly="readonly"/>
+          </td>
+        </tr>
+        <tr>
+          <td class="skname">Atuação</td>
+          <td>Carisma</td>
+          <td> 
+            <input id="profPerf" type="checkbox" onchange="Skills();"/>
+          </td>
+          <td> 
+            <input id="totPerf" type="text" size="2" onchange="Skills();" readonly="readonly"/>
+          </td>
+        </tr>
+        <tr>
+          <td class="skname">Concentração</td>
+          <td>Sanidade</td>
+          <td> 
+            <input id="profConc" type="checkbox" onchange="Skills();"/>
+          </td>
+          <td> 
+            <input id="totConc" type="text" size="2" onchange="Skills();" readonly="readonly"/>
+          </td>
+        </tr>
+        <tr>
+          <td class="skname">Enganação</td>
+          <td>Carisma</td>
+          <td> 
+            <input id="profDec" type="checkbox" onchange="Skills();"/>
+          </td>
+          <td> 
+            <input id="totDec" type="text" size="2" onchange="Skills();" readonly="readonly"/>
+          </td>
+        </tr>
+        <tr>
+          <td class="skname">Fortitude Mental</td>
+          <td>Sanidade</td>
+          <td> 
+            <input id="profMF" type="checkbox" onchange="Skills();"/>
+          </td>
+          <td> 
+            <input id="totMF" type="text" size="2" onchange="Skills();" readonly="readonly"/>
+          </td>
+        </tr>
+        <tr>
+          <td class="skname">Furtividade</td>
+          <td>Destreza</td>
+          <td> 
+            <input id="profSte" type="checkbox" onchange="Skills();"/>
+          </td>
+          <td> 
+            <input id="totSte" type="text" size="2" onchange="Skills();" readonly="readonly"/>
+          </td>
+        </tr>
+        <tr>
+          <td class="skname">História</td>
+          <td>Inteligência</td>
+          <td> 
+            <input id="profHis" type="checkbox" onchange="Skills();"/>
+          </td>
+          <td> 
+            <input id="totHis" type="text" size="2" onchange="Skills();" readonly="readonly"/>
+          </td>
+        </tr>
+        <tr>
+          <td class="skname">Intimidação</td>
+          <td>Carisma</td>
+          <td> 
+            <input id="profInt" type="checkbox" onchange="Skills();"/>
+          </td>
+          <td> 
+            <input id="totInt" type="text" size="2" onchange="Skills();" readonly="readonly"/>
+          </td>
+        </tr>
+        <tr>
+          <td class="skname">Intuição</td>
+          <td>Sabedoria</td>
+          <td> 
+            <input id="profIns" type="checkbox" onchange="Skills();"/>
+          </td>
+          <td> 
+            <input id="totIns" type="text" size="2" onchange="Skills();" readonly="readonly"/>
+          </td>
+        </tr>
+        <tr>
+          <td class="skname">Investigação</td>
+          <td>Inteligência</td>
+          <td> 
+            <input id="profInv" type="checkbox" onchange="Skills();"/>
+          </td>
+          <td> 
+            <input id="totInv" type="text" size="2" onchange="Skills();" readonly="readonly"/>
+          </td>
+        </tr>
+        <tr>
+          <td class="skname">Medicina</td>
+          <td>Sabedoria</td>
+          <td> 
+            <input id="profMed" type="checkbox" onchange="Skills();"/>
+          </td>
+          <td> 
+            <input id="totMed" type="text" size="2" onchange="Skills();" readonly="readonly"/>
+          </td>
+        </tr>
+        <tr>
+          <td class="skname">Natureza</td>
+          <td>Inteligência</td>
+          <td> 
+            <input id="profNat" type="checkbox" onchange="Skills();"/>
+          </td>
+          <td> 
+            <input id="totNat" type="text" size="2" onchange="Skills();" readonly="readonly"/>
+          </td>
+        </tr>
+        <tr>
+          <td class="skname">Percepção</td>
+          <td>Sabedoria</td>
+          <td> 
+            <input id="profPerc" type="checkbox" onchange="Skills();"/>
+          </td>
+          <td> 
+            <input id="totPerc" type="text" size="2" onchange="Skills();" readonly="readonly"/>
+          </td>
+        </tr>
+        <tr>
+          <td class="skname">Persuasão</td>
+          <td>Carisma</td>
+          <td> 
+            <input id="profPers" type="checkbox" onchange="Skills();"/>
+          </td>
+          <td> 
+            <input id="totPers" type="text" size="2" onchange="Skills();" readonly="readonly"/>
+          </td>
+        </tr>
+        <tr>
+          <td class="skname">Prestidigitação</td>
+          <td>Destreza</td>
+          <td> 
+            <input id="profSlei" type="checkbox" onchange="Skills();"/>
+          </td>
+          <td> 
+            <input id="totSlei" type="text" size="2" onchange="Skills();" readonly="readonly"/>
+          </td>
+        </tr>
+        <tr>
+          <td class="skname">Resistir Tortura e Drogas</td>
+          <td>Sanidade</td>
+          <td> 
+            <input id="profRTD" type="checkbox" onchange="Skills();"/>
+          </td>
+          <td> 
+            <input id="totRTD" type="text" size="2" onchange="Skills();" readonly="readonly"/>
+          </td>
+        </tr>
+        <tr>
+          <td class="skname">Resistir Controle Mental</td>
+          <td>Sanidade</td>
+          <td> 
+            <input id="profRCm" type="checkbox" onchange="Skills();"/>
+          </td>
+          <td> 
+            <input id="totRCm" type="text" size="2" onchange="Skills();" readonly="readonly"/>
+          </td>
+        </tr>
+        <tr>
+          <td class="skname">Religião</td>
+          <td>Inteligência</td>
+          <td> 
+            <input id="profReli" type="checkbox" onchange="Skills();"/>
+          </td>
+          <td> 
+            <input id="totReli" type="text" size="2" onchange="Skills();" readonly="readonly"/>
+          </td>
+        </tr>
+        <tr>
+          <td class="skname">Sobrevivência</td>
+          <td>Sabedoria</td>
+          <td> 
+            <input id="profSurv" type="checkbox" onchange="Skills();"/>
+          </td>
+          <td> 
+            <input id="totSurv" type="text" size="2" onchange="Skills();" readonly="readonly"/>
+          </td>
+        </tr>
+      </table>
+    </Section>
+  </div>
+</div>
+<div class="downbar" id="equibar">
+  <h3>Armaduras</h3>
+  <select id="equippedArmor" onchange="equipArmor(this)">
+    <option value="none">None</option>
+    <option value="monge">Monge CA</option>
+    <option value="barbaro">B&aacute;rbaro CA</option>
+    <optgroup id="lightArmor" value="Light Armor" label="Armadura Leve">
+      <option value="padded">Acolchoada</option>
+      <option value="leather">Couro</option>
+      <option value="studded leather">Couro Batido</option>
+    </optgroup>
+    <optgroup id="mediumArmor" value="Medium Armor" label="Armadura Média">
+      <option value="hide">Gib&atilde;o de peles</option>
+      <option value="chain">Camis&atilde;o de Malha</option>
+      <option value="scale">Brunea</option>
+      <option value="breast">Peitoral</option>
+      <option value="half">Meia-Armadura</option>
+    </optgroup>
+    <optgroup id="heavyArmor" value="Heavy Armor" label="Armadura Pesada">
+      <option value="ringmail">Cota de An&eacute;is</option>
+      <option id="chainmailArmor" value="chainmail" disabled="disabled">Chain Mail</option>
+      <option id="splintArmor" value="splint" disabled="disabled">Splint</option>
+      <option id="plateArmor" value="plate" disabled="disabled">Plate</option>
+    </optgroup>
+    <optgroup id="magiclightArmor" value="Magic Light Armor" label="Armadura Leve Mágica">
+      <option value="plusone">Armadura +1</option>
+      <option value="resist">Armadura de Resist&ecirc;ncia</option>
+      <option value="sailor">Armadura do Marinheiro</option>
+      <option value="glamour">Couro Batido Encantador</option>
+    </optgroup>
+    <optgroup id="magicMediumArmor" value="Magic Medium Armor" label="Armadura Média Mágica">
+      <option value="plustwo">Armadura +2</option>
+      <option value="mitral">Armadura de Mitral</option>
+      <option value="dragonScale">Brunea de Escamas de Drag&atilde;o</option>
+      <option value="elfic">Malha &Eacute;lfica</option>
+    </optgroup>
+    <optgroup id="magicHeavyArmor" value="Magic Heavy Armor" label="Armadura Pesada Mágica">
+      <option value="plusthree">Armadura +3</option>
+      <option value="dwarf">Armadura An&atilde;</option>
+      <option value="admant">Armadura de Adamante</option>
+      <option value="vunerability">Armadura de Vulnerabilidade</option>
+      <option value="invunerability">Armadura de Invulnerabilidade</option>
+      <option value="ether">Armadura da Forma Et&eacute;ria</option>
+      <option value="daemon">Armadura Demon&iacute;aca</option>
+      <option value="efreeti">Malha do Efreeti</option>
+    </optgroup>
+  </select>
+  <h4>Escudo</h4>
+  <select id="shieldEquip" onchange="shieldEquip(this)">
+    <option value="none">None</option>
+    <option value="shield">Escudo</option>
+  </select>
+</div>
+<div class="downbar" id="equipbar">
+  <div id="feats"></div>
+</div>
+<div class="downbar" id="equip"></div>
+<!-- partial -->
+  <script  src="./js/script.js"></script>
+
+</body>
+</html>
