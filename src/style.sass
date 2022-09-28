@@ -1,0 +1,551 @@
+//Light Color Pallet
+$GP1hex: #0E2F44//Yankees Blue
+$GP2hex: #FFFF66//Laser Lemon
+$GP3hex: #FF4040//Coral Red
+$GP4hex: #FFFCFC//Lotion
+$GP5hex: #000000//Black
+$lt-bg:url("https://wallpapercrafter.com/desktop/11152-laboratory-sci-fi-art-man-monitors-light-4k.jpg")
+$lt-bcolor: $GP1hex
+$lt-border: $GP4hex
+$bg-lt: rgba(255, 64, 64, 0.45)
+
+//Dark Mode Pallet
+$Bio1hex: #385301//Dark Bronze (Coin) 
+$Bio2hex: #3A2F37//Black Coffee
+$Bio3hex: #0AD13F//Vivid Malachite
+$Bio4hex: #8F8C04//Dark Yellow
+$Bio5hex: #616161//Granite Gray
+$dk-bg:url("https://www.wallpaperflare.com/static/499/597/100/fantasy-art-aliens-black-grey-wallpaper.jpg")
+$dk-bcolor: $Bio3hex
+$dk-border: $Bio4hex
+$bg-dk: rgba(97, 97, 97, 0.9)
+
+//Good-Convivence
+$text: center
+$basic-space--: 0.356%
+$basic-space: 0.71%
+$medium-space--: 1.067%
+$medium-space: 1.423%
+$great-space--: 1.779%
+$great-space: 2.135%
+$margin-SNarrow: 17.5px
+$margin-Narrow: 25px
+$margin-Standard: 50px
+$margin-Large: 75px
+$border-radius: 12px
+$hidden: none
+$inline: inline
+$block: block
+$flex: flex
+
+.column
+	float: left
+	width: 33.33%
+.row
+	&:after
+		content: ""
+		display: table
+		clear: both
+	
+#myBtn 
+	display: none 
+	border-radius: $border-radius
+	width: 25%
+	margin-left: $margin-Large
+.modal 
+	display: none 
+	position: fixed 
+	z-index: 1 
+	padding-top: 100px 
+	left: 0 
+	top: 0 
+	width: 100% 
+	height: 100% 
+	overflow: auto 
+	background-color: rgb(0,0,0) 
+	background-color: rgba(0,0,0,0.4)
+
+.modalSpeed
+	@extend .modal
+	display: block
+	visibility: hidden
+	padding: 2%
+	left: 0
+	top: 0
+	width: 100% 
+	height: 100% 
+.close 
+	color: #aaaaaa 
+	float: right 
+	font-size: 28px 
+	font-weight: bold 
+.close:hover,
+.close:focus 
+	color: #000 
+	text-decoration: none 
+	cursor: pointer 
+.TwonOne 
+	display: none 
+.OnenTwo 
+	display: none 
+.One 
+	display: none 
+#confir 
+	display: none 
+#confirTriple 
+	display: none
+
+#classII
+	@extend input
+
+caption
+	font-size: 1.7em
+
+h2
+	text-align: center
+
+.topInfo
+	display: flex
+	width: 100%
+	text-align: center
+
+.Info
+	float: left
+	width: 49%
+	align-items: center
+
+.characterInfo
+	margin: 10px 5px 0px 0px
+	padding: $basic-space
+
+.classInfo
+	margin: 10px 5px 0px 5px
+
+.multiClass
+	margin: 10px 0px 0px 5px
+  
+*  
+	font-family: "Almendra SC"
+
+.sidenav 
+	height: 100% 
+	width: 0 
+	position: fixed 
+	z-index: 1 
+	top: 0 
+	left: 0 
+	overflow-x: hidden 
+	transition: 0.5s 
+	padding-top: 6.10% 
+	a 
+		padding: 0.81% 0.81% 0.81% 3.79% 
+		text-decoration: none 
+		font-size: 25px 
+		display: block 
+		transition: 0.3s  
+			 
+	.closebtn 
+		position: absolute 
+		top: 0 
+		right: 25px 
+		font-size: 36px 
+		margin-left: 50px
+	
+#Manual
+	display: none
+#lifeTotalMan
+	@extend #Manual
+	
+// Light Mode
+body
+	background-image: $lt-bg
+	background-repeat: no-repeat
+	background-size: cover
+
+select
+	border-radius: $border-radius
+	border: 0px solid black
+	background-color: rgba(255, 64, 64, 0)
+	color: $GP2hex
+	option
+		color: $GP5hex
+	optgroup
+		@extend option
+	
+
+input
+	margin-right: $margin-SNarrow
+	border: 0px solid black
+	background-color: rgba(255, 64, 64, 0)
+	color: $GP2hex
+  
+.hidden
+	display: none
+
+.modal-content
+	margin: auto 
+	padding: 2.03334689% 
+	width: 80% 
+	border:	3px outset $GP1hex
+	border-radius: $border-radius
+	background-color: $bg-lt
+  
+.modalSpeed-content
+	@extend .modal-content
+	text-align: $text
+
+.butao
+	border:	3px outset $GP1hex
+	
+.sidenav
+	@extend .sidenav
+	background-color: $GP1hex
+
+	a
+		@extend a
+		color: $GP3hex
+		&:hover
+			color: #f1f1f1
+
+html
+	color: $GP2hex
+
+#symbol
+	border: 3px inset $GP3hex
+	border-radius: $border-radius
+	background-color: $GP1hex
+	margin-right: 35px
+	float: right
+
+#icon
+	color: $GP3hex
+
+.title
+	margin: 0 auto 0 auto
+	width: 75%
+	text-align: $text
+  
+.tI-light
+	border: 4px outset $lt-bcolor
+	border-radius: $border-radius
+	margin-top: $margin-Narrow
+	background-color: $bg-lt
+  
+.sS-light
+	@extend .tI-light
+	height: auto
+	border-bottom: 0px
+  
+.pF-light
+	@extend .tI-light
+	border-top: 0px
+	border-left: 0px
+	border-right: 0px
+	background-color: rgba(255, 64, 64, 0)
+	
+.Proficiencies
+	select
+		float: right
+	button
+		@extend select
+		padding: $basic-space
+	
+.armor
+	margin-top: $margin-Narrow
+.weapons
+	@extend .armor
+.instruments
+	@extend .armor
+.gaming
+	@extend .armor
+.languages
+	@extend .armor
+.tools
+	margin-top: $margin-Standard
+
+.border
+	border: 4px outset $lt-bcolor
+	border-radius: $border-radius
+	margin-top: $margin-Standard
+	margin-left: $margin-Large
+	margin-right: $margin-Large
+	padding: $basic-space
+	background-color: $bg-lt
+
+.S-light
+	@extend .tI-light
+	height: 100%
+
+.switch 
+	position: relative 
+	display: inline-block 
+	width: 60px 
+	height: 34px 
+	margin-top: $margin-Narrow
+	input 
+		opacity: 0 
+		width: 0 
+		height: 0
+		margin-left: $margin-Narrow
+.slider 
+	position: absolute 
+	cursor: pointer 
+	top: 0 
+	left: 0 
+	right: 0 
+	bottom: 0 
+	background-color: $GP5hex 
+	-webkit-transition: 0.4s 
+	transition: 0.4s 
+	&:before 
+		position: absolute 
+		content: "" 
+		height: 26px 
+		width: 26px 
+		left: 4px 
+		bottom: 4px 
+		background-color: $GP3hex 
+		-webkit-transition: 0.4s 
+		transition: 0.4s 
+	&.round 
+		border-radius: 34px 
+		&:before 
+			border-radius: 50% 
+#slider-lt
+	&:checked
+		& + .slider 
+			background-color: $GP5hex
+			&:before
+				background-color: $GP4hex
+				-webkit-transform: translateX(26px) 
+				-ms-transform: translateX(26px) 
+				transform: translateX(26px)
+		&:focus 
+			& + .slider 
+				box-shadow: 0 0 1px $GP5hex
+		
+.downbar
+	@extend .tI-light
+	padding: $basic-space
+
+.shield
+	float: left
+
+.Death
+	float: left
+	width: 33.33%
+	border: 1px solid black
+.Dslabel
+	&:after
+		content: ""
+		display: table
+		clear: both 
+
+.FSaves
+	width: 1.3em 
+	height: 1.3em 
+	background-color: $GP5hex 
+	border-radius: 50% 
+	vertical-align: middle 
+	border: 1px solid $GP5hex 
+	appearance: none 
+	-webkit-appearance: none 
+	outline: none 
+	cursor: pointer 
+	&:checked 
+		background-color: $GP3hex
+
+.SSaves
+	width: 1.3em 
+	height: 1.3em 
+	background-color: $GP5hex 
+	border-radius: 50% 
+	vertical-align: middle 
+	border: 1px solid $GP5hex 
+	appearance: none 
+	-webkit-appearance: none 
+	outline: none 
+	cursor: pointer 
+	&:checked 
+		background-color: $Bio3hex
+
+// Dark Mode
+.dark-mode
+	background-image: $dk-bg
+	background-repeat: no-repeat
+	background-size: cover
+	color: $Bio3hex
+
+	select
+		background-color: rgba(255, 64, 64, 0)
+		color: $Bio3hex
+		option
+			color: $GP5hex
+		optgroup
+			@extend option
+
+	input
+		margin-right: $margin-SNarrow
+		border: 0px solid black
+		background-color: rgba(255, 64, 64, 0)
+		color: $Bio3hex
+
+	.butao
+		border:	3px outset $Bio4hex
+
+	.modal-content
+		margin: auto 
+		padding: 2.03334689%
+		width: 80% 
+		border:	3px outset $Bio4hex
+		border-radius: $border-radius
+		background-color: $bg-dk
+		
+	#symbol
+		border:3px inset $Bio3hex
+		border-radius: $border-radius
+		background-color: $Bio2hex
+		margin-right: 35px
+		float: right
+	
+	#dk-icon
+		color: $Bio3hex
+	
+	.sidenav
+		@extend .sidenav
+		background-color: $Bio2hex
+		color: $Bio4hex
+
+		a
+			@extend a
+			color: $Bio3hex
+			&:hover
+				color: $Bio4hex
+
+	.hidden
+		display: inline-block
+	.show
+		display: none
+	
+	.title
+		align-items: center
+		margin: 0 auto 0 auto
+		width: 75%
+		text-align: $text
+    
+	.tI-dark
+		border: 4px outset $dk-border
+		border-radius: $border-radius
+		margin-top: $margin-Narrow
+		background-color: $bg-dk
+
+	.sS-dark
+		@extend .tI-dark
+		height: auto
+		border-bottom: 0px
+
+	.pF-dark
+		@extend .tI-dark
+		border-top: 0px
+		border-left: 0px
+		border-right: 0px
+		background-color: rgba(255, 255, 255, 0)
+
+	.S-dark
+		@extend .tI-dark
+		height: 100%
+	
+	.border
+		border: 4px outset $dk-border
+		border-radius: $border-radius
+		margin-top: $margin-Standard
+		margin-left: $margin-Large
+		margin-right: $margin-Large
+		padding: $basic-space
+		background-color: $bg-dk
+	
+	.switch 
+		position: relative 
+		display: inline-block 
+		width: 60px
+		height: 34px
+		input 
+			opacity: 0 
+			width: 0 
+			height: 0 
+	.slider 
+		position: absolute 
+		cursor: pointer 
+		top: 0 
+		left: 0 
+		right: 0 
+		bottom: 0 
+		background-color: $Bio5hex 
+		-webkit-transition: 0.4s 
+		transition: 0.4s 
+		&:before 
+			position: absolute 
+			content: "" 
+			height: 26px 
+			width: 26px 
+			left: 4px 
+			bottom: 4px 
+			background-color: $Bio4hex 
+			-webkit-transition: 0.4s 
+			transition: 0.4s 
+		&.round 
+			border-radius: 34px 
+			&:before 
+				border-radius: 50% 
+	#slider-dk
+		&:checked
+			& + .slider 
+				background-color: $Bio5hex
+				&:before 
+					background-color: $Bio3hex
+					-webkit-transform: translateX(26px) 
+					-ms-transform: translateX(26px) 
+					transform: translateX(26px)
+			&:focus 
+				& + .slider 
+					box-shadow: 0 0 1px $Bio5hex
+		
+	.FSaves
+		width: 1.3em 
+		height: 1.3em 
+		background-color: white 
+		border-radius: 50% 
+		vertical-align: middle 
+		border: 1px solid #ddd 
+		appearance: none 
+		-webkit-appearance: none 
+		outline: none 
+		cursor: pointer 
+		&:checked 
+			background-color: gray
+	
+	.SSaves
+		width: 1.3em 
+		height: 1.3em 
+		background-color: $GP4hex 
+		border-radius: 50% 
+		vertical-align: middle 
+		border: 1px solid #ddd 
+		appearance: none 
+		-webkit-appearance: none 
+		outline: none 
+		cursor: pointer 
+		&:checked 
+			background-color: $GP2hex
+	
+	.downbar
+		@extend .tI-dark
+		padding: $basic-space
+	
+	
+	
+	
+	
+@media(max-width: 600px)
+	.column
+		width: 100%

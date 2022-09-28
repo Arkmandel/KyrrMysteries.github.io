@@ -1,6 +1,6 @@
 .column, .dark-mode .column, .dark-mode .bS, .bS {
   float: left;
-  width: 33.33%;
+  width: 47%;
 }
 
 .row:after {

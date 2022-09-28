@@ -1,0 +1,117 @@
+header
+	#mySidenav-light.sidenav
+		a.closebtn(href="javascript:void(0)", onclick="closeNavlt()") &times;
+		a(href="./index.html") &#9791; Página Principal
+		a(href="./character.html") &#128781; Caracteristicas
+		a(href="./spells.html") &#128770; Magias
+	span.show(style="font-size: 30px; cursor: pointer", onclick="openNavlt()") &#128788;
+	#mySidenav-dark.sidenav.hidden
+		a.closebtn(href="javascript:void(0)", onclick="closeNavdk()") &times;
+		a(href="./index.html") &#11934; Página Principal
+		a(href="./character.html") &#128794; Caracteristicas
+		a(href="./spells.html") &#128855; Magias
+	span.hidden(style="font-size: 30px; cursor: pointer", onclick="openNavdk()") &#128868;
+	button#symbol(style="font-size: 2.1em; cursor: pointer", onclick="DarkMode()")
+		span#icon.show &#128826;
+		span#dk-icon.hidden &#128867;
+
+.row
+	.column.imageHolder(style="background-color:rgba(255, 255, 255, 0)")
+		#imageHoder.Holder
+			img
+			.container
+				p#descricao
+		input#image-input(type="file" accept="image/jpeg, image/png, image/jpg")
+		br
+		.slidecontainer#myRangeOvCont(style="display:none")
+			input.sliderB#myRangeOv(type="range" min="1" max="52" value="1")
+			.containerB
+				p Valor: 
+					span#valorOv
+					| %
+		.slidecontainer#myRangeRdCont(style="display:none")
+			input.sliderB#myRangeRd(type="range" min="1" max="197" value="1")
+			.containerB
+				p Valor: 
+					span#valorRd
+					| px
+		input#moldura(type="button" value="Escolher forma da imagem")
+		select#estilo(style="display:none" onchange="imagem_design();")
+			option(value="none") Escolha uma opção
+			option(value="redondo") Bordas Arredondadas
+			option(value="oval") Imagem Ovalada
+			optgroup(label="Moldurada")
+				option(value="molduraAR") Auto-Relevo
+				option(value="molduraBR") Baixo-Relevo
+			option(value="polaroid") Polaroid
+		button#notLike(style="display:none") Retornar as opções de Moldura
+		button#conValue(style="display:none") Confirmar Valor da borda
+	.column.Ante
+		p#name
+		label(for="#background") Antecedente
+		select#background
+			option Escolha um Antecedente
+			option Acólito
+			optgroup(label="Artesão de Guilda")
+				option Artesão de Guilda
+				option Mercador de Guilda
+			optgroup(label="Artista")
+				option Artista
+				option Gladiador
+			option Charlatão
+			optgroup(label="Criminoso")
+				option Criminoso
+				option Espião
+			option Eremita
+			option Forasteiro
+			option Herói do Povo
+			optgroup(label="Marinheiro")
+				option Marinheiro
+				option Pirata
+			optgroup(label="Nobre")
+				option Nobre
+				option Cavaleiro
+			option Órfão
+			option Sábio
+			option Soldado
+		.row.caracte
+			.column.Leftness
+				textarea(contenteditable="true" cols="25" rows="5" placeholder="Motivações de Personagem")
+				br
+				textarea(contenteditable="true" cols="25" rows="5" placeholder="Afiliações de Personagem")
+			.column.rigntess(style="background-color:rgba(255,255,255,0)")
+				textarea(contenteditable="true" cols="25" rows="5" placeholder="Traços de Personalidade")
+				br
+				textarea(contenteditable="true" cols="25" rows="5" placeholder="Falhas de Caracter")
+				
+		
+		textarea#backstory(contenteditable="true" cols="85" rows="5" placeholder="Historia do Personagem")
+			
+		.row.coluna
+			.column(style="background-color:rgba(255,255,255,0)")
+				textarea#notas(contenteditable="true" cols="37" rows="5" placeholder="Notas")
+			.column(style="background-color:rgba(255,255,255,0); width:50%")
+				.coins
+					.row.obS
+						.column.bS(style="background-color:rgba(255,255,255,0)")
+							label#copper.coinage(for="#copperI") Cobre
+								input#copperI(type="number" min="0" max="5000")
+							br
+							br
+							label#silver.coinage(for="#silverI") Prata
+								input#silverI(type="number" min="0" max="5000")
+							br
+							br
+							label#jkro.coinage(for="#jkroI") Jkro
+								input#jkroI(type="number" min="0" max="5000")
+						.column.bS(style="background-color:rgba(255,255,255,0)")
+							label#electrum.coinage(for="#electrumI") Electrum
+								input#electrumI(type="number" min="0" max="5000")
+							br
+							br
+							label#gold.coinage(for="#goldI") Ouro
+								input#goldI(type="number" min="0" max="5000")
+							br
+							br
+							label#platinum.coinage(for="#platinumI") Platina
+								input#platinumI(type="number" min="0" max="5000")

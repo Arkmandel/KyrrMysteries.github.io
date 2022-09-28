@@ -1,0 +1,190 @@
+@import "style.css"
+
+.polaroid
+	margin: auto
+	width: 90%
+	background-color: rgb(255, 252, 252)
+	box-shadow: 0 4px 8px 0 rgba(255, 255, 102, 0.2), 0 6px 20px 0 rgba(255, 255, 102, 0.19)
+	margin-bottom: $margin-Narrow
+	text-align: $text
+	border-radius: 15px
+	img
+		border-radius: 15px 15px 0px 0px
+	p
+		color: $GP5hex
+	
+.containerB
+	@extend .polaroid
+	width: 100%
+
+.container
+	text-align: $text
+	padding: $medium-space $great-space
+
+.column
+	margin-top: $margin-SNarrow
+	float: left
+	width: 33.33%
+	height: auto
+
+.bS
+	@extend .column
+	width: 50%
+	text-align: $text
+
+.obS
+	align-items: center
+	
+.coluna
+	padding: $basic-space
+	
+#image-input
+	margin: auto
+
+img
+	width: 100%
+	background-position: center
+	background-size: cover
+
+.imageHolder
+	text-align: $text
+	align-items: $text
+	margin-right: $margin-SNarrow
+	padding: $basic-space
+	
+.caracte
+	text-align: $text
+	padding: $medium-space
+
+.Leftness
+	width: 49%
+	margin-right: $margin-SNarrow
+.rightness
+	width: 49%
+	margin-left: $margin-SNarrow
+
+#moldura
+	margin: auto
+	margin-top: 5px
+	border: 1px solid black
+	border-radius: $border-radius
+	background-color: #9e9e9e
+
+p
+	width: 100%
+	margin: $margin-SNarrow
+	text-align: $text
+
+.slidecontainer 
+	width: 100% 
+.sliderB 
+	-webkit-appearance: none 
+	width: 100% 
+	height: 15px 
+	border-radius: 5px 
+	background: #d3d3d3 
+	outline: none 
+	opacity: 0.7 
+	-webkit-transition: 0.2s 
+	transition: opacity 0.2s 
+	&:hover 
+		opacity: 1 
+	&::-webkit-slider-thumb 
+		-webkit-appearance: none 
+		appearance: none 
+		width: 25px 
+		height: 25px 
+		border-radius: 50% 
+		background: #04aa6d 
+		cursor: pointer 
+	&::-moz-range-thumb 
+		width: 25px 
+		height: 25px 
+		border-radius: 50% 
+		background: #04aa6d 
+		cursor: pointer 
+
+#backstory
+	margin: 3px 7px 3px 7px
+ 
+textarea
+	border-radius: $border-radius
+
+#moedas
+	position: relative
+	bottom: 30px
+	border: 2px solid black
+
+#descricao
+	margin: auto
+	width: 100%
+	text-align: $text
+	font-size: 2.2em
+
+//Light Mode
+.column
+	@extend .column
+	background-color: rgba(255, 64, 64, 0.45)
+.Leftness
+	background-color: rgba(255, 64, 64, 0)
+
+.Ante
+	border: 4px outset $lt-bcolor
+	padding: $medium-space--
+	width: 47%
+
+textarea
+	@extend textarea
+	background-color: rgba(255, 252, 252, 0.85)
+
+.coins
+	border: 4px outset $lt-bcolor
+
+.molduraAR
+	border: 8px outset $lt-bcolor
+	
+.molduraBR
+	border: 8px inset $lt-bcolor
+
+//Dark Mode
+.dark-mode
+	.column
+			@extend .column
+			background-color: rgba(97, 97, 97, 0.45)
+	.Leftness
+			background-color: rgba(97, 97, 97, 0)
+	
+	.Ante
+			border: 4px outset $lt-bcolor
+			padding: $medium-space--
+
+	textarea
+			@extend textarea
+			background-color: rgba(255, 252, 252, 0.85)
+
+	.coins
+			border: 4px outset $dk-bcolor
+			color: $Bio3hex
+	
+	.molduraAR
+		border: 8px outset $dk-bcolor
+	
+	.molduraBR
+		border: 8px inset $dk-bcolor
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+@media(max-width: 600px)
+	.column
+		width: 100%
+	textarea
+		width: 20em
+	

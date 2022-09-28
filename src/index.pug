@@ -1,0 +1,847 @@
+header
+	#mySidenav-light.sidenav
+		a.closebtn(href="javascript:void(0)", onclick="closeNavlt()") &times;
+		a(href="./index.html") &#9791; Página Principal
+		a(href="./character.html") &#128781; Caracteristicas
+		a(href="./spells.html") &#128770; Magias
+		label(for="#usemanpv") Usar PV Manual?
+		label#usemanpv.switch
+			input#slider-lt(type="checkbox", onclick="disablt()")
+			span.slider.round
+	span.show(style="font-size: 30px; cursor: pointer", onclick="openNavlt()") &#128788;
+	#mySidenav-dark.sidenav.hidden
+		a.closebtn(href="javascript:void(0)", onclick="closeNavdk()") &times;
+		a(href="./index.html") &#11934; Página Principal
+		a(href="./character.html") &#128794; Caracteristicas
+		a(href="./spells.html") &#128855; Magias
+		label(for="#usemanpv-dk") Usar PV Manual?
+		label#usemanpv-dk.switch
+			input#slider-dk(type="checkbox", onclick="disabdk()")
+			span.slider.round
+	span.hidden(style="font-size: 30px; cursor: pointer", onclick="openNavdk()") &#128868;
+	button#symbol(style="font-size: 2.1em; cursor: pointer", onclick="DarkMode()")
+		span#icon.show &#128826;
+		span#dk-icon.hidden &#128867;
+	h1.title
+		| Ficha de Personagem
+
+.topInfo.tI-light.tI-dark
+	Section.characterInfo.Info 
+		label(for="nameC") Nome do Personagem:
+			input#nameC(type="text", placeholder="Aron Callins VI")
+		label(for="nameP") 
+			br
+			| Nome do Jogador:
+			input#nameP(type="text", placeholder="Joaquim Barbacena")
+		label(for="raceSelect") 
+			br
+			| Raça:
+			select#raceSelect(name="race", onchange="raceSelect(this);")
+				option(value="none") None
+				optgroup(label="Aarakocra")
+				option#aarakocra(value="aarakocra") Aarakocra
+				optgroup(label="Aasimar")
+				option#caido(value="caido") Aasimar Caído
+				option#flagelador(value="flagelador") Aasimar Flagelador
+				option#protetor(value="protetor") Aasimar Protetor
+				optgroup(label="Anão")
+				option#colina(value="colina") Anão da colina
+				option#duegar(value="duegar") Duegar
+				option#montanha(value="barbaro") Anão da montanha
+				optgroup(label="Antari")
+				option#antari(value="antari") Antari
+				optgroup(label="Bugbear")
+				option#bugbear(value="bugbear") Bugbear
+				optgroup(label="Centauro")
+				option#centauro(value="centauro") Centauro
+				optgroup(label="Draconato")
+				option#azul(value="azul") Draconato Azul
+				option#branco(value="branco") Draconato Branco
+				option#bronze(value="bronze") Draconato Bronze/option>
+				option#cobre(value="cobre") Draconato Cobre
+				option#latao(value="latao") Draconato Latão
+				option#negro(value="negro") Draconato Negro
+				option#ouro(value="ouro") Draconato Ouro
+				option#prata(value="prata") Draconato Prata
+				option#verde(value="verde") Draconato Verde
+				option#vermelho(value="vermelho") Draconato Vermelho
+				optgroup(label="Elfo")
+				option#sol(value="sol") Alto Elfo do Sol
+				option#lua(value="lua") Alto Elfo da Lua
+				option#drow(value="drow") Drow
+				option#floresta(value="floresta") Elfo da Floresta
+				option#sea(value="sea") Elfo do Mar
+				option#inverno(value="inverno") Eladrin do Inverno
+				option#outono(value="outono") Eladrin do Outono
+				option#primavera(value="primavera") Eladrin da Primaveira
+				option#verao(value="verao") Eladrin do Verão
+				option#shadarkai(value="shadarkai") Shadar-Kai
+				optgroup(label="Firbolg")
+				option#firbolg(value="firbolg") Firbolg
+				optgroup(label="Genasi")
+				option#ar(value="none") Genasi do Ar
+				option#agua(value="agua") Genasi da Água
+				option#fogo(value="fogo") Genasi do Fogo
+				option#terra(value="terra") Genasi da Terra
+				optgroup(label="Gith")
+				option#githyanki(value="githyanki") Githyanki
+				option#githzerai(value="githzerai") Githzerai
+				optgroup(label="Gnomo")
+				option#gfloresta(value="gfloresta") Gnomo da Floresta
+				option#grochas(value="grochas") Gnomo das Rochas
+				option#gprofundezas(value="gprofundezas") Svirfneblin
+				optgroup(label="Goblin")
+				option#goblin(value="goblin") Goblin
+				optgroup(label="Golias")
+				option#golias(value="golias") Golias
+				optgroup(label="Halfling")
+				option#fanstasma(value="fanstasma") Halfling Fantasma
+				option#pesleves(value="pesleves") Halfling Pés Leves
+				option#valente(value="valente") Halfling Valente
+				optgroup(label="Humano")
+				option#humano(value="humano") Humano
+				optgroup(label="Kenku")
+				option#kenku(value="kenku") Kenku
+				optgroup(label="Kobold")
+				option#kobold(value="kobold") Kobold
+				optgroup(label="Meio-Elfo")
+				option#meioelfo(value="meioelfo") Meio-Elfo
+				optgroup(label="Meio-Orc")
+				option#meioorc(value="meioorc") Meio-Orc
+				optgroup(label="Minotauro")
+				option#minotauro(value="minotauro") Minotauro
+				optgroup(label="Povo-Lagarto")
+				option#povolagarto(value="povolagarto") Povo-Lagarto
+				optgroup(label="Tabaxi")
+				option#tabaxi(value="tabaxi") Tabaxi
+				optgroup(label="Tiefling")
+				option#asmodeus(value="asmodeus") Asmodeus
+				option#baalzebul(value="baalzebul") Baalzebul
+				option#dispater(value="dispater") Dispater
+				option#fierna(value="fierna") Fierna
+				option#glasya(value="glasya") Glasya
+				option#levistus(value="levistus") Levistus
+				option#mammon(value="mammon") Mammon
+				option#mephistopheles(value="mephistopheles") Mephistopheles
+				option#zariel(value="zariel") Zariel
+				optgroup(label="Tritão")
+				option#tritao(value="tritao") Tritão
+				optgroup(label="Yuan-Ti")
+				option#yuanti(value="yuanti") Yuan-Ti
+				optgroup(label="Outros")
+				option#alfy(value="alfy") Alfy
+		br
+
+		button#myBtn.butao.Info Escolher Bônus Raciais
+		p#test
+		// The Modal
+		#myModal.modal
+			// Modal content
+			.modal-content
+				span.close &times;
+				p Escolha como será seu aumento nos atributos!
+				select#choice(onchange="attributeDistrib(this);")
+					caption Como voce quer distribuir os atributos?
+					option(value="none") Escolha um
+					option(value="TwoOne") +2em um atributo, e +1 em outro atributo
+					option(value="triple") +1 em tres atributos diferentes
+				select.TwonOne(name="PlusTwo", style="display: none")
+					caption Qual atributo tera o +2
+					option Escolha um atributo
+					option(value="Carisma") Carisma
+					option(value="Constituição") Constituicao
+					option(value="Destreza") Destreza
+					option(value="Força") Forca
+					option(value="Inteligência") Inteligencia
+					option(value="Sabedoria") Sabedoria
+					option(value="Sanidade") Sanidade
+				select#OnenTwo(name="PlusOne", style="display: none")
+					caption Qual atributo tera o +1
+					option Escolha um atributo
+					option(value="Carisma") Carisma
+					option(value="Constituição") Constituicao
+					option(value="Destreza") Destreza
+					option(value="Força") Forca
+					option(value="Inteligência") Inteligencia
+					option(value="Sabedoria") Sabedoria
+					option(value="Sanidade") Sanidade
+				button#confir Confirmar Mudanças
+				select#One(name="PlusOne1", style="display: none")
+					caption Qual atributo tera o +2
+					option Escolha um atributo
+					option(value="Carisma") Carisma
+					option(value="Constituição") Constituicao
+					option(value="Destreza") Destreza
+					option(value="Força") Forca
+					option(value="Inteligência") Inteligencia
+					option(value="Sabedoria") Sabedoria
+					option(value="Sanidade") Sanidade
+				select#Onee(name="PlusOne2", style="display: none")
+					caption Qual atributo tera o +1
+					option Escolha um atributo
+					option(value="Carisma") Carisma
+					option(value="Constituição") Constituicao
+					option(value="Destreza") Destreza
+					option(value="Força") Forca
+					option(value="Inteligência") Inteligencia
+					option(value="Sabedoria") Sabedoria
+					option(value="Sanidade") Sanidade
+				select#Oneee(name="PlusOne3", style="display: none")
+					caption Qual atributo tera o +1
+					option Escolha um atributo
+					option(value="Carisma") Carisma
+					option(value="Constituição") Constituicao
+					option(value="Destreza") Destreza
+					option(value="Força") Forca
+					option(value="Inteligência") Inteligencia
+					option(value="Sabedoria") Sabedoria
+					option(value="Sanidade") Sanidade
+				button#confirTriple Confirmar Mudanças
+
+	Section.classInfo.Info
+		label(for="totalLevel") Nível do Personagem:
+			input#totalLevel(type="text", size="2", readonly="readonly")
+		label(for="class")
+			br
+			| Classe:
+			select#class(onchange="ChangeClass(this);")
+				option Escolha uma Classe
+				optgroup(label="Conjurador")
+					option Bardo
+					option Bruxo
+					option Clérigo
+					option Druida
+					option Feiticeiro
+					option Mago
+				optgroup(label="Corpo-a-Corpo")
+					option Bárbaro
+					option Guerreiro
+					option Monge
+					option Paladino
+				optgroup(label="Especialista")
+					option Artifice
+					option Ladino
+					option Ranger
+					option Homeopata
+			label(for="levelClass")
+				br 
+				| Nível
+				span#primaryClass Classe:
+				input#levelClass(
+					type="number",
+					min="1",
+					max="20",
+					value="1",
+					onchange="UpdateTotal();"
+				)
+			label(for="multClass") Multiclasse?
+				input#multClass(type="checkbox", onclick="Hidden();")
+	Section.multiClass.Info(style="display: none")
+		label(for="classII") Classe:
+			select#classII(onchange="ChangeClassII(this);")
+				option Escolha uma Classe
+				optgroup(label="Conjurador")
+					option Bardo
+					option Bruxo
+					option Clérigo
+					option Druida
+					option Feiticeiro
+					option Mago
+				optgroup(label="Corpo-a-Corpo")
+					option Bárbaro
+					option Guerreiro
+					option Monge
+					option Paladino
+				optgroup(label="Especialista")
+					option Artifice
+					option Ladino
+					option Ranger
+					option Homeopata
+		label(for="levelClassII") Nível
+			span#secondaryClass Classe:
+			input#levelClassII(
+				type="number",
+				min="0",
+				max="20",
+				onchange="UpdateTotal();",
+				value="0"
+			)
+
+.row
+	.column.left
+		Section.scoresSaves.sS-light.sS-dark
+			table
+				caption Valores de Habilidade
+				tr
+					th Habilidade
+					th Modificador
+					th Valor
+					th TR
+					th Prof
+				tr
+					td Carisma
+					td
+						input#chaMod(
+							type="text",
+							size="2",
+							contenteditable="false",
+							readonly="readonly"
+						)
+					td
+						input#chaScr(
+							type="number",
+							min="1",
+							max="20",
+							value="8",
+							onchange="Modifiers();SavingThrows();Skills();"
+						)
+					td 
+						input#saveValueCha(type="text", size="2", readonly="readonly")
+					td
+						input#chaProf(type="checkbox", onchange="SavingThrows();")
+				tr
+					td Constituição
+					td
+						input#conMod(
+							type="text",
+							size="2",
+							contenteditable="false",
+							readonly="readonly"
+						)
+					td
+						input#conScr(
+							type="number",
+							min="1",
+							max="20",
+							value="8",
+							onchange="Modifiers();SavingThrows();Skills();"
+						)
+					td 
+						input#saveValueCon(type="text", size="2", readonly="readonly")
+					td
+						input#conProf(type="checkbox", onchange="SavingThrows();")
+				tr
+					td Destreza
+					td
+						input#dexMod(
+							type="text",
+							size="2",
+							contenteditable="false",
+							readonly="readonly"
+						)
+					td
+						input#dexScr(
+							type="number",
+							min="1",
+							max="20",
+							value="8",
+							onchange="Modifiers();SavingThrows();Skills();"
+						)
+					td 
+						input#saveValueDex(type="text", size="2", readonly="readonly")
+					td
+						input#dexProf(type="checkbox", onchange="SavingThrows();")
+				tr
+					td Força
+					td
+						input#strMod(
+							type="text",
+							size="2",
+							contenteditable="false",
+							readonly="readonly"
+						)
+					td
+						input#strScr(
+							type="number",
+							min="1",
+							max="20",
+							value="8",
+							onchange="Modifiers();SavingThrows();Skills();"
+						)
+					td 
+						input#saveValueStr(type="text", size="2", readonly="readonly")
+					td
+						input#strProf(type="checkbox", onchange="SavingThrows();")
+				tr
+					td Inteligência
+					td
+						input#intMod(
+							type="text",
+							size="2",
+							contenteditable="false",
+							readonly="readonly"
+						)
+					td
+						input#intScr(
+							type="number",
+							min="1",
+							max="20",
+							value="8",
+							onchange="Modifiers();SavingThrows();Skills();"
+						)
+					td 
+						input#saveValueInt(type="text", size="2", readonly="readonly")
+					td
+						input#intProf(type="checkbox", onchange="SavingThrows();")
+				tr
+					td Sabedoria
+					td
+						input#wisMod(
+							type="text",
+							size="2",
+							contenteditable="false",
+							readonly="readonly"
+						)
+					td
+						input#wisScr(
+							type="number",
+							min="1",
+							max="20",
+							value="8",
+							onchange="Modifiers();SavingThrows();Skills();"
+						)
+					td 
+						input#saveValueWis(type="text", size="2", readonly="readonly")
+					td
+						input#wisProf(type="checkbox", onchange="SavingThrows();")
+				tr
+					td Sanidade
+					td
+						input#sanMod(type="text", size="2", readonly="readonly")
+					td
+						input#sanScr(
+							type="number",
+							min="1",
+							max="20",
+							value="8",
+							onchange="Modifiers();SavingThrows();Skills();"
+						)
+					td 
+						input#saveValueSan(type="text", size="2", readonly="readonly")
+					td
+						input#sanProf(type="checkbox", onchange="SavingThrows();")
+			Section.proficienciesFeats.pF-light.pF-dark
+				.Proficiencies
+					h2 Proficiencias e Talentos
+					.armor
+						label(for="#armorp") Armadura:
+							select#armorp
+								option none
+								option Armadura Leve
+								option Armadura Média
+								option Armadura Pesada
+								option Todas
+					.weapons
+						label(for="#weaponp") Arma:
+							select#weaponp(onchancge="otherWeapons()")
+								option none
+								option Armas Simples
+								option Armas Marciais
+								option Todas
+								option Outros
+					.languages
+						label(for="#langp") Quais idiomas você conhece?
+							button#langp(onclick="Transpose()") &#9908
+						p#langtext
+					.tools
+						label(for="#toolp") Quais Ferramentas você sabe usar?
+							button#toolp(onclick="Tools()") &#9874
+						p#tooltext
+	.column
+		Section.middleSection
+			.speedInitiative.border
+				label(for="#profValue") Bônus de Proficiência:
+					input#profValue(type="text", size="2", readonly="readonly")
+				br
+				label(for="#Initiative") Iniciativa:
+					input#Initiative(type="text", size="2", readonly="readonly")
+				br
+				label(for="#speed") Deslocamento (Caminhada)
+				input#speed(type="text", size="3", readonly="readonly")
+				#mySpeedModal.modalSpeed
+					// Modal content
+					.modalSpeed-content
+						p Sua velocidade de Caminhada é de:
+							span#walk 
+							| m.
+						p Sua velocidade de Escalada é de:
+							span#climb 
+							| m.
+						p Sua velocidade de Nado é de:
+							span#swim 
+							| m.
+						p Sua velocidade de Vôo é de:
+							span#fly 
+							| m.
+			.acLife.border
+				label(for="Ac") Classe de Armadura
+					input#Ac(type="text", size="3", readonly="readonly")
+				br
+				label#PAuto(for="#lifeTotal") PV Total:
+					input#lifeTotal(type="text", size="2", readonly="readonly")
+				label#Manual(for="lifeTotalMan") PV Total:
+					input#lifeTotalMan(type="number", min="0", max="330")
+				label#hitDie(for="die") Dados de Vida:
+					input#die(type="text", size="2", readonly="readonly")
+				br
+				label#PasP(for="pasP") Percepção Passiva:
+					input#pasP(type="text", size="3", readonly="readonly")
+				br
+				label#PVAtuallabel(for="#PVAtual") PV Restante:
+					input#PVAtual(type="number", min="0", max="350")
+			.dsSpellDC.border
+				label#Death(for="#dSaves") Testes de Morte:
+					br
+					label#DeathS.Dslabel
+						label(for=".SSaves") Sucessos
+							input.SSaves.Death(type="checkbox")
+							input.SSaves.Death(type="checkbox")
+							input.SSaves.Death(type="checkbox")
+					br
+					label#DeathF.Dslabel
+						label(for=".FSaves") Falhas
+							input.FSaves.Death(type="checkbox")
+							input.FSaves.Death(type="checkbox")
+							input.FSaves.Death(type="checkbox")
+
+				label#SpellDc(for="#SpDc") CD de Magia
+					input#SpDc(type="text", size="3", readonly="readonly")
+				br
+				label#SpellAttk(for="SpAtk") Ataque de Magia
+					input#SpAtk(type="text", size="3", readonly="readonly")
+	.column
+		Section.skills.S-light.S-dark
+			table
+				caption Pericias
+				tr
+					th Pericias
+					th Habilidade
+					th Proficiente
+					th Valor
+				tr
+					td.skname Acrobacia
+					td Destreza
+					td 
+						input#profAcro(type="checkbox", onchange="Skills();")
+					td 
+						input#totAcro(
+							type="text",
+							size="2",
+							onchange="Skills();",
+							readonly="readonly"
+						)
+				tr
+					td.skname Adestrar Animais
+					td Sabedoria
+					td 
+						input#profAdes(type="checkbox", onchange="Skills();")
+					td 
+						input#totAdes(
+							type="text",
+							size="2",
+							onchange="Skills();",
+							readonly="readonly"
+						)
+				tr
+					td.skname Arcanismo
+					td Inteligência
+					td 
+						input#profArcan(type="checkbox", onchange="Skills();")
+					td 
+						input#totArcan(
+							type="text",
+							size="2",
+							onchange="Skills();",
+							readonly="readonly"
+						)
+				tr
+					td.skname Atletismo
+					td Força
+					td 
+						input#profAthe(type="checkbox", onchange="Skills();")
+					td 
+						input#totAthe(
+							type="text",
+							size="2",
+							onchange="Skills();",
+							readonly="readonly"
+						)
+				tr
+					td.skname Atuação
+					td Carisma
+					td 
+						input#profPerf(type="checkbox", onchange="Skills();")
+					td 
+						input#totPerf(
+							type="text",
+							size="2",
+							onchange="Skills();",
+							readonly="readonly"
+						)
+				tr
+					td.skname Concentração
+					td Sanidade
+					td 
+						input#profConc(type="checkbox", onchange="Skills();")
+					td 
+						input#totConc(
+							type="text",
+							size="2",
+							onchange="Skills();",
+							readonly="readonly"
+						)
+				tr
+					td.skname Enganação
+					td Carisma
+					td 
+						input#profDec(type="checkbox", onchange="Skills();")
+					td 
+						input#totDec(
+							type="text",
+							size="2",
+							onchange="Skills();",
+							readonly="readonly"
+						)
+				tr
+					td.skname Fortitude Mental
+					td Sanidade
+					td 
+						input#profMF(type="checkbox", onchange="Skills();")
+					td 
+						input#totMF(
+							type="text",
+							size="2",
+							onchange="Skills();",
+							readonly="readonly"
+						)
+				tr
+					td.skname Furtividade
+					td Destreza
+					td 
+						input#profSte(type="checkbox", onchange="Skills();")
+					td 
+						input#totSte(
+							type="text",
+							size="2",
+							onchange="Skills();",
+							readonly="readonly"
+						)
+				tr
+					td.skname História
+					td Inteligência
+					td 
+						input#profHis(type="checkbox", onchange="Skills();")
+					td 
+						input#totHis(
+							type="text",
+							size="2",
+							onchange="Skills();",
+							readonly="readonly"
+						)
+				tr
+					td.skname Intimidação
+					td Carisma
+					td 
+						input#profInt(type="checkbox", onchange="Skills();")
+					td 
+						input#totInt(
+							type="text",
+							size="2",
+							onchange="Skills();",
+							readonly="readonly"
+						)
+				tr
+					td.skname Intuição
+					td Sabedoria
+					td 
+						input#profIns(type="checkbox", onchange="Skills();")
+					td 
+						input#totIns(
+							type="text",
+							size="2",
+							onchange="Skills();",
+							readonly="readonly"
+						)
+				tr
+					td.skname Investigação
+					td Inteligência
+					td 
+						input#profInv(type="checkbox", onchange="Skills();")
+					td 
+						input#totInv(
+							type="text",
+							size="2",
+							onchange="Skills();",
+							readonly="readonly"
+						)
+				tr
+					td.skname Medicina
+					td Sabedoria
+					td 
+						input#profMed(type="checkbox", onchange="Skills();")
+					td 
+						input#totMed(
+							type="text",
+							size="2",
+							onchange="Skills();",
+							readonly="readonly"
+						)
+				tr
+					td.skname Natureza
+					td Inteligência
+					td 
+						input#profNat(type="checkbox", onchange="Skills();")
+					td 
+						input#totNat(
+							type="text",
+							size="2",
+							onchange="Skills();",
+							readonly="readonly"
+						)
+				tr
+					td.skname Percepção
+					td Sabedoria
+					td 
+						input#profPerc(type="checkbox", onchange="Skills();")
+					td 
+						input#totPerc(
+							type="text",
+							size="2",
+							onchange="Skills();",
+							readonly="readonly"
+						)
+				tr
+					td.skname Persuasão
+					td Carisma
+					td 
+						input#profPers(type="checkbox", onchange="Skills();")
+					td 
+						input#totPers(
+							type="text",
+							size="2",
+							onchange="Skills();",
+							readonly="readonly"
+						)
+				tr
+					td.skname Prestidigitação
+					td Destreza
+					td 
+						input#profSlei(type="checkbox", onchange="Skills();")
+					td 
+						input#totSlei(
+							type="text",
+							size="2",
+							onchange="Skills();",
+							readonly="readonly"
+						)
+				tr
+					td.skname Resistir Tortura e Drogas
+					td Sanidade
+					td 
+						input#profRTD(type="checkbox", onchange="Skills();")
+					td 
+						input#totRTD(
+							type="text",
+							size="2",
+							onchange="Skills();",
+							readonly="readonly"
+						)
+				tr
+					td.skname Resistir Controle Mental
+					td Sanidade
+					td 
+						input#profRCm(type="checkbox", onchange="Skills();")
+					td 
+						input#totRCm(
+							type="text",
+							size="2",
+							onchange="Skills();",
+							readonly="readonly"
+						)
+				tr
+					td.skname Religião
+					td Inteligência
+					td 
+						input#profReli(type="checkbox", onchange="Skills();")
+					td 
+						input#totReli(
+							type="text",
+							size="2",
+							onchange="Skills();",
+							readonly="readonly"
+						)
+				tr
+					td.skname Sobrevivência
+					td Sabedoria
+					td 
+						input#profSurv(type="checkbox", onchange="Skills();")
+					td 
+						input#totSurv(
+							type="text",
+							size="2",
+							onchange="Skills();",
+							readonly="readonly"
+						)
+
+#equibar.downbar
+	h3 Armaduras
+	select#equippedArmor(onchange="equipArmor(this)")
+		option(value="none") None
+		option(value="monge") Monge CA
+		option(value="barbaro") B&aacute;rbaro CA
+		optgroup#lightArmor(value="Light Armor", label="Armadura Leve")
+			option(value="padded") Acolchoada
+			option(value="leather") Couro
+			option(value="studded leather") Couro Batido
+		optgroup#mediumArmor(value="Medium Armor", label="Armadura Média")
+			option(value="hide") Gib&atilde;o de peles
+			option(value="chain") Camis&atilde;o de Malha
+			option(value="scale") Brunea
+			option(value="breast") Peitoral
+			option(value="half") Meia-Armadura
+		optgroup#heavyArmor(value="Heavy Armor", label="Armadura Pesada")
+			option(value="ringmail") Cota de An&eacute;is
+			option#chainmailArmor(value="chainmail", disabled="disabled")
+				| Chain Mail
+			option#splintArmor(value="splint", disabled="disabled")
+				| Splint
+			option#plateArmor(value="plate", disabled="disabled")
+				| Plate
+		optgroup#magiclightArmor(
+			value="Magic Light Armor",
+			label="Armadura Leve Mágica"
+		)
+			option(value="plusone") Armadura +1
+			option(value="resist") Armadura de Resist&ecirc;ncia
+			option(value="sailor") Armadura do Marinheiro
+			option(value="glamour") Couro Batido Encantador
+		optgroup#magicMediumArmor(
+			value="Magic Medium Armor",
+			label="Armadura Média Mágica"
+		)
+			option(value="plustwo") Armadura +2
+			option(value="mitral") Armadura de Mitral
+			option(value="dragonScale") Brunea de Escamas de Drag&atilde;o
+			option(value="elfic") Malha &Eacute;lfica
+		optgroup#magicHeavyArmor(
+			value="Magic Heavy Armor",
+			label="Armadura Pesada Mágica"
+		)
+			option(value="plusthree") Armadura +3
+			option(value="dwarf") Armadura An&atilde;
+			option(value="admant") Armadura de Adamante
+			option(value="vunerability") Armadura de Vulnerabilidade
+			option(value="invunerability")
+				| Armadura de Invulnerabilidade
+			option(value="ether") Armadura da Forma Et&eacute;ria
+			option(value="daemon") Armadura Demon&iacute;aca
+			option(value="efreeti") Malha do Efreeti
+	h4 Escudo
+	select#shieldEquip(onchange="shieldEquip(this)")
+		option(value="none") None
+		option(value="shield") Escudo
+
+#equipbar.downbar
+	#feats
+
+#equip.downbar
